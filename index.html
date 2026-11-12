@@ -4,153 +4,225 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>التأهيل المسبق للموردين 2026-2027 | منتدى الإغاثة والبناء CRB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="البوابة الإلكترونية الرسمية للتأهيل المسبق للموردين ومقدمي الخدمات للعام 2026-2027م لدى منتدى الإغاثة والبناء CRB.">
+  
+  <!-- أيقونة الشعار في محرك البحث وتبويب المتصفح (Favicon) بهوية CRB -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='112' height='112' x='4' y='4' rx='24' fill='%23ffffff' stroke='%23009640' stroke-width='6'/%3E%3Cpath d='M42 68 C35 55 38 34 44 34 C48 34 48 45 50 45 C54 30 62 22 67 24 C71 26 62 42 64 43 C70 30 78 24 83 27 C87 30 74 46 76 48 C83 38 90 35 93 39 C96 43 82 56 83 59 C89 53 95 52 97 56 C99 61 80 78 65 78 C50 78 46 74 42 68 Z' fill='%23F37021'/%3E%3Cpath d='M56 44 L46 54 L46 64 L52 64 L52 55 L56 51 L60 55 L60 64 L66 64 L66 54 Z' fill='%23009640'/%3E%3Ctext x='60' y='103' font-family='Arial, sans-serif' font-weight='900' font-size='32' fill='%23009640' text-anchor='middle'%3ECRB%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0a4d8c;
-      --secondary: #1565c0;
-      --accent: #00897b;
-      --danger: #d32f2f;
-      --warning: #f57c00;
-      --bg: #f0f4f8;
-      --border: #cbd5e1;
+      --crb-green: #009640;
+      --crb-green-dark: #00702e;
+      --crb-green-light: #e6f6ec;
+      --crb-orange: #F37021;
+      --crb-orange-light: #fff3eb;
+      --danger: #dc2626;
+      --bg: #f3f7f5;
+      --border: #d1dfd7;
+      --text: #1e293b;
     }
     * { box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-    body { background-color: var(--bg); margin: 0; padding: 15px; color: #1e293b; }
-    .container { max-width: 1120px; margin: 0 auto; background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(10,77,140,0.1); overflow: hidden; border: 1px solid #e2e8f0; }
+    body { background-color: var(--bg); background-image: radial-gradient(#00964012 1px, transparent 1px); background-size: 24px 24px; margin: 0; padding: 0 12px 40px; color: var(--text); }
+
+    /* شريط التقدم العائم في أعلى الشاشة */
+    .top-progress-bar { position: fixed; top: 0; right: 0; left: 0; height: 6px; background: #e2e8f0; z-index: 9999; }
+    .top-progress-fill { height: 100%; width: 5%; background: linear-gradient(90deg, var(--crb-orange), var(--crb-green)); transition: width 0.4s ease; }
+
+    /* شريط المعلومات العلوي والتاريخ الحي */
+    .live-bar { max-width: 1140px; margin: 14px auto 10px; background: #fff; border: 1px solid var(--border); border-right: 5px solid var(--crb-orange); border-radius: 10px; padding: 10px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); font-size: 13.5px; }
+    .live-welcome { font-weight: 700; color: var(--crb-green-dark); display: flex; align-items: center; gap: 8px; }
+    .live-clock { background: var(--crb-green-light); color: var(--crb-green-dark); padding: 4px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; border: 1px solid #b7e4c7; }
+
+    .container { max-width: 1140px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,112,46,0.09); overflow: hidden; border: 1px solid var(--border); }
+
+    /* ترويسة الهوية البصرية لمنتدى الإغاثة والبناء CRB */
+    .header { background: linear-gradient(135deg, #005a24 0%, var(--crb-green) 60%, #059669 100%); color: #fff; padding: 35px 25px; text-align: center; border-bottom: 6px solid var(--crb-orange); position: relative; overflow: hidden; }
+    .header::before { content: ""; position: absolute; top: -60px; left: -60px; width: 200px; height: 200px; background: rgba(243,112,33,0.18); border-radius: 50%; }
+    .header::after { content: ""; position: absolute; bottom: -80px; right: -40px; width: 240px; height: 240px; background: rgba(255,255,255,0.06); border-radius: 50%; }
     
-    /* الهوية البصرية والترويسة */
-    .header { background: linear-gradient(135deg, #073b6d 0%, #0a4d8c 50%, #00695c 100%); color: #fff; padding: 35px 25px; text-align: center; border-bottom: 6px solid #ffb300; position: relative; }
-    .header h1 { margin: 0 0 8px; font-size: 28px; font-weight: 800; letter-spacing: 0.3px; }
-    .header h2 { margin: 0 0 16px; font-size: 17px; font-weight: 600; opacity: 0.95; color: #e0f2fe; }
-    .badge { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); padding: 7px 22px; border-radius: 30px; font-size: 14px; font-weight: 700; display: inline-block; }
+    .logo-box { width: 105px; height: 105px; background: #fff; border-radius: 22px; margin: 0 auto 14px; padding: 8px; box-shadow: 0 8px 22px rgba(0,0,0,0.22); border: 3px solid var(--crb-orange); display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
+    .logo-box:hover { transform: scale(1.06) rotate(-2deg); }
+    .logo-box img, .logo-box svg { width: 100%; height: 100%; object-fit: contain; }
 
-    /* الديباجة الرسمية والشروط */
-    .intro-box { background: #f8fafc; border-right: 6px solid var(--primary); border-top: 1px solid #e2e8f0; border-left: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 22px; margin: 25px; border-radius: 10px; font-size: 14.5px; line-height: 1.85; color: #334155; }
-    .intro-box h3 { margin: 0 0 10px; color: var(--primary); font-size: 17px; }
-    .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 15px; background: #eef6ff; padding: 15px; border-radius: 8px; border: 1px dashed #90caf9; }
-    .rule-item { font-size: 13.5px; color: #0d47a1; font-weight: 600; display: flex; align-items: flex-start; gap: 8px; }
+    .header h1 { margin: 0 0 6px; font-size: 29px; font-weight: 900; letter-spacing: 0.3px; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .header h2 { margin: 0 0 16px; font-size: 16.5px; font-weight: 600; color: #ffedd5; }
+    .badge-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .badge { background: rgba(255,255,255,0.16); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.35); padding: 6px 20px; border-radius: 30px; font-size: 13.5px; font-weight: 700; }
+    .badge.orange { background: var(--crb-orange); border-color: #fff; }
 
-    /* تنبيه الأخطاء */
-    #errorBanner { display: none; background: #fef2f2; border: 2px solid #ef4444; border-right-width: 8px; color: #991b1b; padding: 18px 22px; margin: 20px 25px; border-radius: 10px; font-size: 14.5px; line-height: 1.8; box-shadow: 0 4px 12px rgba(239,68,68,0.12); }
-    #errorBanner ul { margin: 8px 0 0; padding-right: 22px; font-weight: 600; }
+    /* بطاقة الترحيب التفاعلية بصاحب الإيميل */
+    #userGreetingCard { display: none; background: linear-gradient(to left, var(--crb-orange-light), var(--crb-green-light)); border: 1.5px solid var(--crb-orange); margin: 20px 25px 0; padding: 14px 20px; border-radius: 12px; font-weight: 700; color: #064e3b; animation: fadeIn 0.4s ease; }
 
-    /* الأقسام */
-    .section { margin: 25px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #fff; }
-    .section-title { background: linear-gradient(to left, #e3f2fd, #f1f5f9); color: var(--primary); padding: 14px 20px; font-weight: 800; font-size: 17px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #bbdefb; }
+    /* صندوق قوائم الموردين */
+    .intro-box { background: #f9fbf9; border-right: 6px solid var(--crb-green); border-top: 1px solid var(--border); border-left: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 22px 24px; margin: 22px 25px; border-radius: 12px; font-size: 14.5px; line-height: 1.9; color: #334155; }
+    .intro-box h3 { margin: 0 0 10px; color: var(--crb-green-dark); font-size: 18px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+    .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-top: 15px; background: #fff; padding: 15px; border-radius: 10px; border: 1px dashed var(--crb-green); }
+    .rule-item { font-size: 13px; color: var(--crb-green-dark); font-weight: 700; display: flex; align-items: flex-start; gap: 8px; }
+
+    /* شريط الأخطاء */
+    #errorBanner { display: none; background: #fef2f2; border: 2px solid var(--danger); border-right-width: 8px; color: #991b1b; padding: 18px 22px; margin: 20px 25px; border-radius: 12px; font-size: 14px; line-height: 1.8; }
+    #errorBanner ul { margin: 8px 0 0; padding-right: 22px; font-weight: 700; }
+
+    /* الأقسام والتأثيرات الحركية */
+    .section { margin: 24px 25px; border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; transition: all 0.25s ease; }
+    .section:hover { border-color: var(--crb-green); box-shadow: 0 8px 24px rgba(0,150,64,0.06); }
+    .section-title { background: linear-gradient(to left, var(--crb-green-light), #ffffff); color: var(--crb-green-dark); padding: 14px 22px; font-weight: 800; font-size: 17px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #b7e4c7; border-right: 5px solid var(--crb-orange); }
     .section-body { padding: 22px; }
 
-    /* الحقول والشبكة */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
+    /* الحقول */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
     .form-group { display: flex; flex-direction: column; position: relative; }
     .form-group.full { grid-column: 1 / -1; }
-    label { font-weight: 700; font-size: 14px; margin-bottom: 6px; color: #1e293b; }
+    label { font-weight: 700; font-size: 14px; margin-bottom: 6px; color: #1e293b; display: flex; align-items: center; gap: 4px; }
     label span.req { color: var(--danger); font-size: 16px; }
     .hint { font-size: 12px; color: #64748b; margin-top: 4px; }
-    .field-err { font-size: 12px; color: var(--danger); font-weight: 700; margin-top: 4px; display: none; }
-    
-    input, select, textarea { padding: 10px 12px; border: 1.5px solid #cbd5e1; border-radius: 7px; font-size: 14px; transition: all 0.2s; background: #fcfdfe; color: #0f172a; }
-    input:focus, select:focus, textarea:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 0 3px rgba(21,101,192,0.15); background: #fff; }
-    .input-error { border-color: var(--danger) !important; background-color: #fff5f5 !important; box-shadow: 0 0 0 3px rgba(211,47,47,0.12) !important; }
-    .input-valid { border-color: #10b981 !important; }
+    .sabafon-badge { background: var(--crb-orange-light); color: #c2410c; border: 1px solid #fdba74; padding: 2px 8px; border-radius: 12px; font-size: 11.5px; font-weight: 800; margin-right: auto; }
+
+    input, select, textarea { padding: 10px 13px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 14px; transition: all 0.2s ease; background: #fcfdfc; color: #0f172a; }
+    input:hover, select:hover, textarea:hover { border-color: #94a3b8; }
+    input:focus, select:focus, textarea:focus { border-color: var(--crb-green); outline: none; box-shadow: 0 0 0 3.5px rgba(0,150,64,0.14); background: #fff; transform: translateY(-1px); }
+    .input-error { border-color: var(--danger) !important; background-color: #fff5f5 !important; box-shadow: 0 0 0 3px rgba(220,38,38,0.12) !important; }
+    .marib-highlight { border: 2px solid var(--crb-orange) !important; background-color: var(--crb-orange-light) !important; animation: pulseOrange 1.5s infinite; }
+
+    @keyframes pulseOrange {
+      0% { box-shadow: 0 0 0 0 rgba(243, 112, 33, 0.35); }
+      70% { box-shadow: 0 0 0 8px rgba(243, 112, 33, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(243, 112, 33, 0); }
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
     /* الجداول */
-    .table-responsive { overflow-x: auto; margin-top: 8px; }
+    .table-responsive { overflow-x: auto; margin-top: 8px; border-radius: 8px; }
     table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 680px; }
-    th { background: #1e40af; color: #fff; padding: 11px 10px; border: 1px solid #1e3a8a; text-align: center; font-weight: 700; }
-    td { padding: 8px; border: 1px solid var(--border); vertical-align: top; background: #fff; }
-    td input, td select { width: 100%; padding: 8px; font-size: 13.5px; border: 1px solid #cbd5e1; border-radius: 5px; }
+    th { background: var(--crb-green-dark); color: #fff; padding: 12px 10px; border: 1px solid #005a24; text-align: center; font-weight: 700; }
+    td { padding: 8px; border: 1px solid var(--border); vertical-align: middle; background: #fff; }
+    tr:nth-child(even) td { background: #f8faf9; }
+    td input, td select { width: 100%; padding: 8px; font-size: 13.5px; border: 1px solid #cbd5e1; border-radius: 6px; }
 
     /* الأزرار */
     .btn-row-actions { display: flex; gap: 10px; margin-top: 12px; }
-    .btn-add { background: #eff6ff; color: var(--primary); border: 1.5px dashed var(--primary); padding: 8px 18px; border-radius: 7px; cursor: pointer; font-weight: 700; font-size: 13.5px; transition: 0.2s; }
-    .btn-add:hover { background: #dbeafe; }
-    .btn-del { background: #fef2f2; color: var(--danger); border: 1px solid #fecaca; padding: 6px 10px; border-radius: 5px; cursor: pointer; font-weight: 700; font-size: 12px; }
+    .btn-add { background: var(--crb-green-light); color: var(--crb-green-dark); border: 1.5px dashed var(--crb-green); padding: 8px 20px; border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 13.5px; transition: 0.2s; }
+    .btn-add:hover { background: var(--crb-green); color: #fff; }
 
-    .submit-area { padding: 30px; text-align: center; background: #f8fafc; border-top: 2px solid #e2e8f0; }
-    .btn-submit { background: linear-gradient(135deg, #00897b, #00695c); color: #fff; border: none; padding: 15px 50px; font-size: 18px; font-weight: 800; border-radius: 9px; cursor: pointer; transition: 0.3s; box-shadow: 0 6px 16px rgba(0,137,123,0.3); }
-    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,137,123,0.4); }
+    .submit-area { padding: 32px 25px; text-align: center; background: linear-gradient(to bottom, #f8fafc, #eef5f0); border-top: 2px solid var(--border); }
+    .btn-submit { background: linear-gradient(135deg, var(--crb-orange), #d9530f); color: #fff; border: none; padding: 16px 55px; font-size: 18.5px; font-weight: 900; border-radius: 10px; cursor: pointer; transition: 0.3s; box-shadow: 0 8px 20px rgba(243,112,33,0.35); }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(243,112,33,0.45); background: linear-gradient(135deg, #009640, #00702e); }
     .btn-submit:disabled { background: #64748b; cursor: wait; transform: none; box-shadow: none; }
 
-    #statusNote { margin-top: 12px; font-size: 14px; font-weight: 700; color: var(--primary); display: none; }
+    #statusNote { margin-top: 14px; font-size: 14.5px; font-weight: 700; color: var(--crb-green-dark); display: none; }
+
+    /* الفوتر */
+    .footer { text-align: center; padding: 18px; background: #0f172a; color: #cbd5e1; font-size: 13px; border-top: 4px solid var(--crb-green); }
+    .footer a { color: #ffb300; text-decoration: none; font-weight: 700; }
 
     /* نافذة النجاح */
     #successModal { display: none; padding: 60px 30px; text-align: center; background: #fff; }
-    .success-icon { width: 80px; height: 80px; background: #d1fae5; color: #059669; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 42px; margin-bottom: 20px; }
-    #successModal h2 { color: #065f46; font-size: 28px; margin: 0 0 12px; }
+    .success-icon { width: 90px; height: 90px; background: var(--crb-green-light); color: var(--crb-green); border: 3px solid var(--crb-orange); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 46px; margin-bottom: 20px; }
   </style>
 </head>
 <body>
 
+<!-- شريط التقدم العلوي -->
+<div class="top-progress-bar"><div class="top-progress-fill" id="progressBar"></div></div>
+
+<!-- شريط الترحيب وتاريخ ووقت الدخول الحي -->
+<div class="live-bar">
+  <div class="live-welcome">
+    <span>🤝 بوابة الشركاء والموردين - منتدى الإغاثة والبناء (CRB)</span>
+    <span id="completionText" style="background:#fff3eb; color:#c2410c; padding:2px 10px; border-radius:12px; font-size:12px;">نسبة إكمال الاستمارة: 0%</span>
+  </div>
+  <div class="live-clock" id="liveClock">🕒 تاريخ ووقت الدخول: جاري التحميل...</div>
+</div>
+
 <div class="container">
   <div class="header">
+    <!-- الشعار الرسمي لـ CRB (يقرأ logo.png وإن لم يوجد يعرض الشعار المرسوم تلقائياً) -->
+    <div class="logo-box">
+      <img src="logo.png" alt="CRB Logo" onerror="this.style.display='none'; document.getElementById('fallbackSvg').style.display='block';">
+      <svg id="fallbackSvg" style="display:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+        <rect width="112" height="112" x="4" y="4" rx="22" fill="#ffffff" stroke="#009640" stroke-width="5"/>
+        <path d="M38 68 C30 55 34 32 41 32 C45 32 45 44 47 44 C52 28 60 20 66 22 C70 24 60 41 62 42 C69 28 77 22 82 25 C86 28 73 45 75 47 C82 36 90 33 93 37 C96 41 81 55 83 58 C89 52 95 51 97 55 C99 61 78 79 62 79 C47 79 42 74 38 68 Z" fill="#F37021"/>
+        <path d="M55 43 L44 53 L44 64 L50 64 L50 54 L55 50 L60 54 L60 64 L66 64 L66 53 Z" fill="#009640"/>
+        <text x="60" y="104" font-family="Arial, sans-serif" font-weight="900" font-size="33" fill="#009640" text-anchor="middle">CRB</text>
+      </svg>
+    </div>
     <h1>منتدى الإغاثة والبناء - CRB</h1>
     <h2>استمارة التأهيل المسبق للموردين ومقدمي الخدمات | Suppliers / Service Providers Pre-qualification Statement</h2>
-    <div class="badge">قائمة الموردين المعتمدين للعام 2026 - 2027م</div>
+    <div class="badge-row">
+      <div class="badge orange">قائمة الموردين المعتمدين للعام 2026 - 2027م</div>
+      <div class="badge">إدارة المشتريات واللوجستيات | rashad@crbyemen.org</div>
+    </div>
   </div>
+
+  <!-- بطاقة الترحيب التفاعلية بصاحب الإيميل والشركة -->
+  <div id="userGreetingCard"></div>
 
   <div id="formContainer">
     <div class="intro-box">
-      <h3>أ. قوائم الموردين والغرض من التأهيل المسبق:</h3>
-      هي قائمة بأسماء جميع الموردين والمتعاقدين الذين عملوا أو يرغبون بالعمل مع <strong>منتدى الإغاثة والبناء (CRB)</strong>، سواء كانوا مصنعين، أو منتجين، أو موردين، أو مقاولين، أو وكلاء مسجلين ومصنفين في قوائم موردي المنتدى، والتي تُجدد سنوياً. تعكس عملية تأهيل الموردين وتسجيلهم حرص المنتدى على تطوير وتحسين العمل للوصول إلى أعلى مستويات التميز في تحقيق الشفافية والمصداقية عند تطبيق نظام التوريد والشراء الخاص به، وتعتمد إمكانية اعتماد تأهيل الموردين وإعداد قوائم مختصرة (Shortlists) عند تقديم العطاءات على تقييم الموردين في ضوء الجودة الشاملة والقدرة التنافسية والالتزام بالقواعد واللوائح المتبعة.
+      <h3>📋 قوائم الموردين والغرض من التأهيل المسبق:</h3>
+      هي قائمة بأسماء جميع الموردين والمتعاقدين الذين عملوا أو يرغبون بالعمل مع <strong>منتدى الإغاثة والبناء (CRB)</strong>، سواء كانوا مصنعين، أو منتجين، أو موردين، أو مقاولين، أو وكلاء مسجلين ومصنفين في قوائم موردي المنتدى، والتي تُجدد سنوياً. ينبغي تقييم كل مورد وإدراجه في قائمة الموردين، مما يُظهر التزامه وجودة تنفيذه للأعمال المتفق عليها.<br>
+      تعكس عملية تأهيل الموردين وتسجيلهم حرص المنتدى على تطوير وتحسين العمل للوصول إلى أعلى مستويات التميز في تحقيق الشفافية والمصداقية عند تطبيق نظام التوريد والشراء الخاص به، وتعتمد إمكانية اعتماد تأهيل الموردين وإعداد قوائم مختصرة عند تقديم العطاءات على تقييم الموردين في ضوء الجودة الشاملة والقدرة التنافسية والالتزام بالقواعد واللوائح المتبعة.
       
       <div class="rules-grid">
-        <div class="rule-item">✔️ يجب أن تكون كافة البطاقات الرسمية (التجارية، الضريبية، الزكوية، المهنة) سارية المفعول وغير منتهية.</div>
-        <div class="rule-item">✔️ يشترط وجود حساب بنكي رسمي باسم الشركة أو المؤسسة المطابق للسجل التجاري.</div>
-        <div class="rule-item">✔️ يجب إرفاق خبرة موثقة لأعمال وعقود منفذة خلال السنوات الثلاث الأخيرة (2023 - 2026م).</div>
-        <div class="rule-item">✔️ ترفق جميع الوثائق الرسمية في ملف (PDF) واحد واضح في القسم الثامن من هذا النموذج.</div>
+        <div class="rule-item">🟢 سريان المفعول: يشترط أن تكون جميع التراخيص والبطاقات الرسمية سارية المفعول.</div>
+        <div class="rule-item">🟠 لموردي مأرب: يشترط إدخال رقم اتصال سبأفون (71xxxxxxx) نشط للتواصل المباشر.</div>
+        <div class="rule-item">🟢 الحساب البنكي: يجب أن يكون الحساب البنكي رسمياً باسم الشركة أو المؤسسة.</div>
+        <div class="rule-item">🟠 المرفقات: دمج الوثائق الرسمية في ملف (PDF) واحد وإرفاقه في القسم الثامن.</div>
       </div>
     </div>
 
     <!-- شريط الأخطاء التحذيري -->
     <div id="errorBanner">
-      <strong>⚠️ عذراً، لم يتم إرسال النموذج لوجود حقول غير مكتملة أو غير مطابقة للشروط:</strong>
+      <strong>⚠️ يرجى استكمال وتصحيح الحقول التالية الملونة بالأحمر قبل الإرسال:</strong>
       <ul id="errorList"></ul>
     </div>
 
     <form id="supplierForm" novalidate>
-      
+      <input type="hidden" id="entryTimeInput">
+
       <!-- ================= القسم الأول: المعلومات الأساسية ================= -->
       <div class="section">
         <div class="section-title">
           <span>أولاً: المعلومات الأساسية (Basic Information)</span>
-          <span style="font-size: 13px; font-weight: 600;">* جميع الحقول المعلمة بنجمة إلزامية</span>
+          <span style="font-size: 12.5px; color: var(--crb-orange);">* حقول إلزامية</span>
         </div>
         <div class="section-body grid">
           <div class="form-group">
             <label>اسم الشركة / المؤسسة (Name of Company) <span class="req">*</span></label>
             <input type="text" id="companyName" required placeholder="الاسم التجاري الكامل كما في السجل التجاري">
-            <span class="hint">يُمنع كتابة أرقام فقط أو رموز مختصرة (لا يقل عن كلمتين).</span>
+            <span class="hint">يُمنع كتابة أرقام فقط أو رموز مختصرة (كلمتين على الأقل).</span>
           </div>
 
           <div class="form-group">
             <label>البريد الإلكتروني الرسمي (Official Email) <span class="req">*</span></label>
             <input type="email" id="email" required dir="ltr" style="text-align:right" placeholder="info@company.com">
-            <span class="hint">سيتم إرسال إشعار تأكيد التقديم الآلي إلى هذا البريد.</span>
+            <span class="hint">سيصلك ترحيب وإشعار تأكيد التقديم الآلي على هذا البريد.</span>
           </div>
 
           <div class="form-group">
-            <label>المحافظة / المنطقة الرئيسية (City – Governorate) <span class="req">*</span></label>
+            <label>المحافظة / المقر الرئيسي (Governorate – City) <span class="req">*</span></label>
             <select id="city" required>
               <option value="">-- اختر المحافظة من القائمة --</option>
-              <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء (Sana'a City)</option>
-              <option value="عدن">عدن (Aden)</option>
               <option value="مأرب">مأرب (Marib)</option>
+              <option value="عدن">عدن (Aden)</option>
+              <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء (Sana'a City)</option>
               <option value="تعز">تعز (Taiz)</option>
               <option value="حضرموت">حضرموت (Hadramaut)</option>
               <option value="الحديدة">الحديدة (Al Hudaydah)</option>
-              <option value="إب">إب (Ibb)</option>
               <option value="شبوة">شبوة (Shabwah)</option>
+              <option value="إب">إب (Ibb)</option>
               <option value="لحج">لحج (Lahij)</option>
               <option value="أبين">أبين (Abyan)</option>
               <option value="الضالع">الضالع (Ad Dali')</option>
               <option value="المهرة">المهرة (Al Mahrah)</option>
               <option value="سقطرى">أرخبيل سقطرى (Socotra)</option>
+              <option value="الجوف">الجوف (Al Jawf)</option>
+              <option value="البيضاء">البيضاء (Al Bayda)</option>
               <option value="حجة">حجة (Hajjah)</option>
               <option value="ذمار">ذمار (Dhamar)</option>
               <option value="عمران">عمران (Amran)</option>
-              <option value="البيضاء">البيضاء (Al Bayda)</option>
-              <option value="الجوف">الجوف (Al Jawf)</option>
               <option value="صعدة">صعدة (Sa'dah)</option>
               <option value="المحويت">المحويت (Al Mahwit)</option>
               <option value="ريمة">ريمة (Raymah)</option>
@@ -159,19 +231,25 @@
           </div>
 
           <div class="form-group">
-            <label>العنوان التفصيلي للمقر الرئيسي (Detailed Address) <span class="req">*</span></label>
-            <input type="text" id="address" required placeholder="المديرية - الشارع الرئيسي - الحي - رقم المبنى / أقرب معلم">
+            <label>العنوان التفصيلي للمقر (Detailed Address) <span class="req">*</span></label>
+            <input type="text" id="address" required placeholder="المديرية - الشارع الرئيسي - الحي - أقرب معلم بارز">
           </div>
 
           <div class="form-group">
-            <label>رقم الهاتف / الجوال الرسمي (Telephone / Mobile) <span class="req">*</span></label>
-            <input type="tel" id="phone" required dir="ltr" style="text-align:right" placeholder="77xxxxxxx / 01xxxxxx">
-            <span class="hint">أدخل رقم جوال يمني مكون من 9 أرقام يبدأ بـ (77, 78, 73, 71, 70) أو هاتف ثابت.</span>
+            <label>رقم الهاتف / الجوال الرئيسي (Main Telephone) <span class="req">*</span></label>
+            <input type="tel" id="phone" required dir="ltr" style="text-align:right" placeholder="77xxxxxxx / 73xxxxxxx / 01xxxxxx">
+            <span class="hint">رقم جوال يمني (9 أرقام) أو هاتف ثابت متاح للاتصال والواتساب.</span>
           </div>
 
+          <!-- حقل رقم سبأفون اتصال (بديل الفاكس، وإلزامي لمأرب) -->
           <div class="form-group">
-            <label>رقم الفاكس أو هاتف بديل (Fax / Secondary Phone)</label>
-            <input type="tel" id="fax" dir="ltr" style="text-align:right" placeholder="اختياري">
+            <label>
+              <span>رقم سبأفون اتصال (SabaFon Call #)</span>
+              <span class="req" id="sabafonReqStar" style="display:none;">*</span>
+              <span class="sabafon-badge" id="sabafonBadge">إلزامي لموردي مأرب (71)</span>
+            </label>
+            <input type="tel" id="sabafon" dir="ltr" style="text-align:right" placeholder="71xxxxxxx (رقم سبأفون للتواصل المباشر)">
+            <span class="hint" id="sabafonHint">يرجى إدخال رقم سبأفون يبدأ بـ (71) مكون من 9 أرقام لسهولة الاتصال (إلزامي في محافظة مأرب).</span>
           </div>
 
           <div class="form-group">
@@ -199,41 +277,40 @@
           </div>
 
           <div class="form-group">
-            <label>رقم التسجيل التجاري (Registration Number) <span class="req">*</span></label>
+            <label>رقم السجل التجاري (Registration #) <span class="req">*</span></label>
             <input type="text" id="regNumber" required placeholder="رقم السجل التجاري">
           </div>
 
           <div class="form-group">
-            <label>سنة التسجيل / التأسيس (Year of Registration) <span class="req">*</span></label>
-            <input type="number" id="regYear" min="1950" max="2026" required placeholder="مثال: 2018">
+            <label>سنة التسجيل / التأسيس (Year) <span class="req">*</span></label>
+            <input type="number" id="regYear" min="1950" max="2026" required placeholder="مثال: 2019">
           </div>
 
           <div class="form-group">
             <label>مكان إصدار السجل التجاري (Place of Registration) <span class="req">*</span></label>
             <select id="regPlace" required>
               <option value="">-- اختر مكتب الصناعة والتجارة --</option>
-              <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء</option>
-              <option value="عدن">عدن</option>
               <option value="مأرب">مأرب</option>
+              <option value="عدن">عدن</option>
+              <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء</option>
               <option value="تعز">تعز</option>
               <option value="حضرموت - المكلا">حضرموت - المكلا</option>
               <option value="حضرموت - سيئون">حضرموت - سيئون</option>
               <option value="الحديدة">الحديدة</option>
-              <option value="إب">إب</option>
               <option value="شبوة">شبوة</option>
+              <option value="إب">إب</option>
               <option value="لحج">لحج</option>
               <option value="أبين">أبين</option>
               <option value="الضالع">الضالع</option>
               <option value="المهرة">المهرة</option>
               <option value="سقطرى">سقطرى</option>
-              <option value="أخرى">محافظة أخرى</option>
+              <option value="محافظة أخرى">محافظة أخرى</option>
             </select>
           </div>
 
           <div class="form-group full">
             <label>الإدارة التنفيذية / أعضاء مجلس الإدارة والمفوضين بالتوقيع (Executive Management / Board Members) <span class="req">*</span></label>
-            <textarea id="execManagement" rows="2" required placeholder="يرجى كتابة الاسم الرباعي للمدير العام وأعضاء مجلس الإدارة أو المفوضين بالتوقيع + الصفة الوظيفية + رقم الجوال"></textarea>
-            <span class="hint">مثال: محمد صالح أحمد (المدير العام - 77xxxxxxx) | علي حسن قاسم (المدير المالي - 77xxxxxxx)</span>
+            <textarea id="execManagement" rows="2" required placeholder="اكتب الأسماء الرباعية للمدير العام والمفوضين بالتوقيع + المسمى الوظيفي + أرقام الهواتف"></textarea>
           </div>
         </div>
       </div>
@@ -292,7 +369,7 @@
 
           <div class="form-group">
             <label>النشاط الأساسي الثالث - 3 (Third Activity)</label>
-            <input type="text" id="act3" placeholder="اختياري: اكتب أي نشاط ثالث متخصص">
+            <input type="text" id="act3" placeholder="اختياري: اكتب أي تخصص ثالث">
           </div>
 
           <div class="form-group">
@@ -305,8 +382,8 @@
           </div>
 
           <div class="form-group">
-            <label>إجمالي سنوات الخبرة الفعلية في السوق (Total years of Experience) <span class="req">*</span></label>
-            <input type="number" id="expYears" min="1" max="75" required placeholder="عدد السنوات (مثال: 6)">
+            <label>إجمالي سنوات الخبرة الفعلية (Total years of Experience) <span class="req">*</span></label>
+            <input type="number" id="expYears" min="1" max="75" required placeholder="عدد السنوات (مثال: 5)">
           </div>
         </div>
       </div>
@@ -323,45 +400,44 @@
               <option value="">-- اختر البنك المعتمد --</option>
               <option value="بنك الكريمي للتمويل الأصغر الإسلامي">بنك الكريمي للتمويل الأصغر الإسلامي (Kuraimi Bank)</option>
               <option value="بنك التضامن">بنك التضامن (Tadhamon Bank)</option>
+              <option value="بنك سبأ الإسلامي">بنك سبأ الإسلامي (Saba Islamic Bank)</option>
               <option value="البنك التجاري اليمني">البنك التجاري اليمني (YCB)</option>
               <option value="بنك اليمن والكويت">بنك اليمن والكويت (YKB)</option>
               <option value="البنك الأهلي اليمني">البنك الأهلي اليمني (NBY)</option>
-              <option value="بنك سبأ الإسلامي">بنك سبأ الإسلامي (Saba Islamic Bank)</option>
               <option value="بنك الأمل للتمويل الأصغر">بنك الأمل للتمويل الأصغر (Al-Amal Bank)</option>
               <option value="بنك القطيبي الإسلامي">بنك القطيبي الإسلامي (Al-Qutaibi Bank)</option>
               <option value="بنك البسيري للتمويل الأصغر">بنك البسيري للتمويل الأصغر</option>
               <option value="البنك اليمني للإنشاء والتعمير">البنك اليمني للإنشاء والتعمير (YBRD)</option>
-              <option value="بنك التسليف التعاوني والزراعي (كاك بنك)">كاك بنك (CAC Bank)</option>
+              <option value="كاك بنك (CAC Bank)">كاك بنك (CAC Bank)</option>
               <option value="بنك اليمن الدولي">بنك اليمن الدولي (IBY)</option>
-              <option value="بنك الشامل">مصرف الشامل (Shamil Bank)</option>
+              <option value="مصرف الشامل">مصرف الشامل</option>
               <option value="بنك آخر">بنك آخر (يُذكر في خانة الفرع)</option>
             </select>
           </div>
 
           <div class="form-group">
             <label>عنوان البنك / الفرع والمحافظة (Bank Address & Branch) <span class="req">*</span></label>
-            <input type="text" id="bankAddress" required placeholder="مثال: عدن - الفرع الرئيسي / صنعاء - فرع حدة">
+            <input type="text" id="bankAddress" required placeholder="مثال: مأرب - الفرع الرئيسي / عدن / صنعاء">
           </div>
 
           <div class="form-group">
             <label>اسم الحساب البنكي الرسمي (Account Name) <span class="req">*</span></label>
-            <input type="text" id="accountName" required placeholder="يجب أن يكون الحساب باسم الشركة المطابق للسجل">
-            <span class="hint">لا تُقبل الحسابات البنكية الشخصية للأفراد.</span>
+            <input type="text" id="accountName" required placeholder="يجب أن يطابق الاسم التجاري للشركة">
           </div>
 
           <div class="form-group">
             <label>رقم الحساب بالدولار الأمريكي (Account # USD / IBAN)</label>
-            <input type="text" id="accUSD" dir="ltr" style="text-align:right" placeholder="أدخل رقم الحساب أو IBAN">
+            <input type="text" id="accUSD" dir="ltr" style="text-align:right" placeholder="Account # USD">
           </div>
 
           <div class="form-group">
             <label>رقم الحساب بالريال اليمني (Account # YER / IBAN)</label>
-            <input type="text" id="accYER" dir="ltr" style="text-align:right" placeholder="أدخل رقم الحساب أو IBAN">
+            <input type="text" id="accYER" dir="ltr" style="text-align:right" placeholder="Account # YER">
           </div>
 
           <div class="form-group">
             <label>رقم الحساب بالريال السعودي (Account # SR / IBAN)</label>
-            <input type="text" id="accSAR" dir="ltr" style="text-align:right" placeholder="أدخل رقم الحساب أو IBAN">
+            <input type="text" id="accSAR" dir="ltr" style="text-align:right" placeholder="Account # SAR">
           </div>
 
           <div class="form-group">
@@ -382,7 +458,7 @@
         </div>
         <div class="section-body table-responsive">
           <p class="hint" style="margin:0 0 10px; color:#b91c1c; font-weight:700; font-size:13px;">
-            ⚠️ شرط إلزامي: يتحقق النظام آلياً من التواريخ؛ يجب أن يكون (تاريخ الإصدار) في الماضي، و(تاريخ الانتهاء) ساري المفعول في المستقبل.
+            ⚠️ يتحقق النظام آلياً من التواريخ: يجب أن يكون (تاريخ الإصدار) في الماضي، و(تاريخ الانتهاء) ساري المفعول في المستقبل.
           </p>
           <table>
             <thead>
@@ -480,8 +556,8 @@
                 <tr>
                   <td style="text-align:center; font-weight:bold;">1</td>
                   <td><input type="text" class="st-name" placeholder="الاسم الثلاثي أو الرباعي *"></td>
-                  <td><input type="text" class="st-role" placeholder="مثال: المدير التنفيذي / مهندس مشروع *"></td>
-                  <td><input type="text" class="st-qual" placeholder="مثال: بكالوريوس هندسة / إدارة أعمال *"></td>
+                  <td><input type="text" class="st-role" placeholder="مثال: المدير التنفيذي / مهندس *"></td>
+                  <td><input type="text" class="st-qual" placeholder="مثال: بكالوريوس هندسة / إدارة *"></td>
                   <td><input type="number" class="st-exp" min="1" max="60" placeholder="السنوات *"></td>
                 </tr>
                 <tr>
@@ -520,8 +596,8 @@
               <tr>
                 <td style="text-align:center; font-weight:bold;">1</td>
                 <td><input type="text" placeholder="مثال: شاحنة نقل / مستودع تخزين / آليات هندسية..."></td>
-                <td><input type="number" min="1980" max="2026" placeholder="2021"></td>
-                <td><input type="text" placeholder="الموديل أو المساحة"></td>
+                <td><input type="number" min="1980" max="2026" placeholder="2022"></td>
+                <td><input type="text" placeholder="الموديل أو السعة"></td>
                 <td>
                   <select>
                     <option value="">-- اختر --</option>
@@ -544,8 +620,8 @@
           <span>سابعاً: قائمة الأعمال والعقود المنفذة خلال الثلاث السنوات الأخيرة (List of works for the last 3 years)</span>
         </div>
         <div class="section-body table-responsive">
-          <p class="hint" style="margin:0 0 10px; color:#0a4d8c; font-weight:700; font-size:13px;">
-            📌 يرجى إدراج العقود المنفذة خلال السنوات الثلاث الأخيرة بترتيب زمني مع تحديد المحافظة ورقم هاتف الجهة المرجعية للتحقق.
+          <p class="hint" style="margin:0 0 10px; color:var(--crb-green-dark); font-weight:700; font-size:13px;">
+            📌 يرجى إدراج العقود المنفذة خلال السنوات الثلاث الأخيرة (2023 - 2026) مع اختيار المحافظة ورقم هاتف الجهة المرجعية للتحقق.
           </p>
           <table id="worksTable">
             <thead>
@@ -572,24 +648,24 @@
                 <td>
                   <select class="w-addr">
                     <option value="">-- اختر المحافظة --</option>
-                    <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء</option>
-                    <option value="عدن">عدن</option>
                     <option value="مأرب">مأرب</option>
+                    <option value="عدن">عدن</option>
+                    <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء</option>
                     <option value="تعز">تعز</option>
                     <option value="حضرموت">حضرموت</option>
                     <option value="الحديدة">الحديدة</option>
-                    <option value="إب">إب</option>
                     <option value="شبوة">شبوة</option>
+                    <option value="إب">إب</option>
                     <option value="لحج">لحج</option>
                     <option value="أبين">أبين</option>
                     <option value="الضالع">الضالع</option>
                     <option value="المهرة">المهرة</option>
                     <option value="سقطرى">سقطرى</option>
+                    <option value="الجوف">الجوف</option>
+                    <option value="البيضاء">البيضاء</option>
                     <option value="حجة">حجة</option>
                     <option value="ذمار">ذمار</option>
                     <option value="عمران">عمران</option>
-                    <option value="البيضاء">البيضاء</option>
-                    <option value="الجوف">الجوف</option>
                     <option value="صعدة">صعدة</option>
                     <option value="المحويت">المحويت</option>
                     <option value="ريمة">ريمة</option>
@@ -597,7 +673,7 @@
                   </select>
                 </td>
                 <td><input type="email" class="w-email" dir="ltr" style="text-align:right" placeholder="email@client.org"></td>
-                <td><input type="tel" class="w-phone" dir="ltr" style="text-align:right" placeholder="77xxxxxxx / 01xxxxxx"></td>
+                <td><input type="tel" class="w-phone" dir="ltr" style="text-align:right" placeholder="77xxxxxxx / 71xxxxxxx"></td>
               </tr>
             </tbody>
           </table>
@@ -619,9 +695,9 @@
             <span class="hint">يرجى دمج صور واضحة من: (السجل التجاري، رخصة المهنة، البطاقة الضريبية، البطاقة الزكوية، الهيكل التنظيمي، وأهم العقود السابقة) في ملف PDF واحد.</span>
           </div>
 
-          <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #cbd5e1;">
-            <label style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; margin: 0; line-height: 1.7;">
-              <input type="checkbox" id="declarationCheck" style="width: 22px; height: 22px; margin-top: 4px; flex-shrink: 0;">
+          <div style="background: var(--crb-green-light); padding: 16px; border-radius: 10px; border: 1.5px solid var(--crb-green);">
+            <label style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; margin: 0; line-height: 1.8;">
+              <input type="checkbox" id="declarationCheck" style="width: 22px; height: 22px; margin-top: 4px; flex-shrink: 0; accent-color: var(--crb-green);">
               <span>
                 أقر أنا المفوض بالتوقيع عن الشركة/المؤسسة بصحة كافة البيانات والتواريخ المدونة أعلاه ومطابقتها للوثائق الرسمية السارية المرفقة، وأوافق على قيام لجنة المشتريات في <strong>منتدى الإغاثة والبناء (CRB)</strong> بالتواصل مع الجهات المرجعية وإجراء الزيارة الميدانية لمقر الشركة للتحقق والمطابقة، مع علمي بأن أي بيانات غير صحيحة تؤدي إلى استبعاد الطلب تلقائياً. <span class="req">*</span>
               </span>
@@ -632,47 +708,124 @@
 
       <div class="submit-area">
         <button type="submit" class="btn-submit" id="submitBtn">إرسال واعتماد طلب التأهيل المسبق | Submit Application</button>
-        <div id="statusNote">جاري فحص البيانات ورفع ملف الـ PDF إلى قاعدة بيانات منتدى الإغاثة والبناء (CRB)... قد يستغرق رفع الملف بضع ثوانٍ ⏳</div>
+        <div id="statusNote">جاري فحص البيانات ورفع ملف الـ PDF وإرسال نسخة إلى إدارة المشتريات (rashad@crbyemen.org)... يرجى الانتظار ⏳</div>
       </div>
     </form>
   </div>
 
-  <!-- شاشة التهنئة بعد نجاح الإرسال -->
+  <!-- شاشة التهنئة بعد الإرسال -->
   <div id="successModal">
     <div class="success-icon">✓</div>
     <h2>مبارك عليك التقديم لدى منتدى الإغاثة والبناء - CRB</h2>
-    <p style="font-size: 20px; font-weight: 700; color: #0a4d8c; margin: 8px 0 20px;">نتطلع لشراكة مثمرة ومستدامة معكم!</p>
+    <p id="personalSuccessMsg" style="font-size: 20px; font-weight: 800; color: var(--crb-orange); margin: 8px 0 18px;">نتطلع لشراكة مثمرة ومستدامة معكم!</p>
     <p style="color: #334155; max-width: 680px; margin: 0 auto 25px; line-height: 1.9; font-size: 15.5px;">
-      تم استلام استمارة التأهيل المسبق للموردين ومقدمي الخدمات للعام <strong>(2026 - 2027م)</strong> وحفظ مرفقاتكم الرسمية بنجاح.<br>
-      كما تم إرسال <strong>إشعار تأكيد آلي</strong> إلى بريدكم الإلكتروني المسجل، وستقوم لجنة المشتريات بمراجعة ملفكم والتواصل معكم في حال استيفاء معايير القائمة المختصرة.
+      تم تسجيل بياناتكم في قاعدة بيانات الموردين للعام <strong>(2026 - 2027م)</strong> وحفظ مرفقاتكم الرسمية بنجاح.<br>
+      كما تم إرسال <strong>إشعار تأكيد آلي</strong> إلى بريدكم الإلكتروني، وإشعار مباشر إلى إدارة المشتريات (<strong>rashad@crbyemen.org</strong>).
     </p>
     <button type="button" class="btn-add" onclick="location.reload()">تقديم طلب جديد لشركة أخرى</button>
+  </div>
+
+  <div class="footer">
+    جميع الحقوق محفوظة © 2026 - 2027 <strong>منتدى الإغاثة والبناء (CRB)</strong> | للتواصل والاستفسار: <a href="mailto:rashad@crbyemen.org">rashad@crbyemen.org</a>
   </div>
 </div>
 
 <script>
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwHmjBYn9kbvxF7t91lQPNH1k43bpd7qGXdTKyYRnhctwOMY0nphYn72ZfwHoSLv-fU/exec";
 
+  // 1. تسجيل تاريخ ووقت الدخول وتحديث الساعة الحية
+  const entryDate = new Date();
+  const formattedEntry = entryDate.toLocaleString('ar-YE', { dateStyle: 'full', timeStyle: 'medium' });
+  document.getElementById("entryTimeInput").value = formattedEntry;
+
+  function updateClock() {
+    const now = new Date();
+    const timeStr = now.toLocaleString('ar-YE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById("liveClock").innerText = "🕒 تاريخ ووقت الدخول: " + timeStr;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // 2. الترحيب التفاعلي بصاحب الإيميل واسم الشركة
+  function updatePersonalGreeting() {
+    const comp = document.getElementById("companyName").value.trim();
+    const em = document.getElementById("email").value.trim();
+    const card = document.getElementById("userGreetingCard");
+    if (comp || em) {
+      card.style.display = "block";
+      card.innerHTML = `🌟 أهلاً ومرحباً بكم <strong>${comp ? '(' + comp + ')' : ''}</strong> ${em ? '— صاحب البريد الإلكتروني: <span dir="ltr" style="color:#c2410c;">' + em + '</span>' : ''} في بوابة التأهيل المسبق للموردين لدى <strong>منتدى الإغاثة والبناء (CRB)</strong>. نتمنى لكم تقديماً موفقاً!`;
+    } else {
+      card.style.display = "none";
+    }
+  }
+  document.getElementById("companyName").addEventListener("input", updatePersonalGreeting);
+  document.getElementById("email").addEventListener("input", updatePersonalGreeting);
+
+  // 3. تفعيل شرط رقم سبأفون تلقائياً عند اختيار محافظة مأرب
+  const citySelect = document.getElementById("city");
+  const sabafonInput = document.getElementById("sabafon");
+  const sabafonStar = document.getElementById("sabafonReqStar");
+  const sabafonHint = document.getElementById("sabafonHint");
+
+  citySelect.addEventListener("change", function() {
+    if (this.value === "مأرب") {
+      sabafonStar.style.display = "inline";
+      sabafonInput.classList.add("marib-highlight");
+      sabafonInput.setAttribute("required", "required");
+      sabafonHint.innerHTML = "<strong style='color:#c2410c;'>⚠️ تنبيه لموردي محافظة مأرب:</strong> إدخال رقم اتصال سبأفون (يبدأ بـ 71 ومكون من 9 أرقام) إلزامي لاعتماد الطلب وسهولة التواصل.";
+    } else {
+      sabafonStar.style.display = "none";
+      sabafonInput.classList.remove("marib-highlight");
+      sabafonInput.removeAttribute("required");
+      sabafonHint.innerText = "يرجى إدخال رقم سبأفون يبدأ بـ (71) مكون من 9 أرقام لسهولة الاتصال (إلزامي في محافظة مأرب).";
+    }
+    updateProgress();
+  });
+
+  // 4. حساب نسبة إكمال النموذج بشكل حي
+  function updateProgress() {
+    const reqFields = [
+      "companyName", "email", "city", "address", "phone", "legalStatus",
+      "ownership", "regNumber", "regYear", "regPlace", "execManagement",
+      "act1", "creditSale", "expYears", "bankName", "bankAddress",
+      "accountName", "bankTransfer", "validStructure", "fullTimeStaff", "nationalStaff"
+    ];
+    let filled = 0;
+    reqFields.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.value.trim() !== "") filled++;
+    });
+    if (document.getElementById("attachment").files.length > 0) filled += 2;
+    if (document.getElementById("declarationCheck").checked) filled += 2;
+
+    const pct = Math.min(100, Math.round((filled / (reqFields.length + 4)) * 100));
+    document.getElementById("progressBar").style.width = pct + "%";
+    document.getElementById("completionText").innerText = `نسبة إكمال الاستمارة: ${pct}%`;
+  }
+  document.getElementById("supplierForm").addEventListener("input", updateProgress);
+  document.getElementById("supplierForm").addEventListener("change", updateProgress);
+
+  // 5. دوال إضافة الصفوف الديناميكية للجداول
   const govOptions = `
     <option value="">-- اختر المحافظة --</option>
-    <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء</option>
-    <option value="عدن">عدن</option>
     <option value="مأرب">مأرب</option>
+    <option value="عدن">عدن</option>
+    <option value="أمانة العاصمة صنعاء">أمانة العاصمة صنعاء</option>
     <option value="تعز">تعز</option>
     <option value="حضرموت">حضرموت</option>
     <option value="الحديدة">الحديدة</option>
-    <option value="إب">إب</option>
     <option value="شبوة">شبوة</option>
+    <option value="إب">إب</option>
     <option value="لحج">لحج</option>
     <option value="أبين">أبين</option>
     <option value="الضالع">الضالع</option>
     <option value="المهرة">المهرة</option>
     <option value="سقطرى">سقطرى</option>
+    <option value="الجوف">الجوف</option>
+    <option value="البيضاء">البيضاء</option>
     <option value="حجة">حجة</option>
     <option value="ذمار">ذمار</option>
     <option value="عمران">عمران</option>
-    <option value="البيضاء">البيضاء</option>
-    <option value="الجوف">الجوف</option>
     <option value="صعدة">صعدة</option>
     <option value="المحويت">المحويت</option>
     <option value="ريمة">ريمة</option>
@@ -681,7 +834,7 @@
 
   function addStaffRow() {
     const tbody = document.querySelector("#staffTable tbody");
-    if (tbody.rows.length >= 15) return alert("الحد الأقصى المسموح به في الاستمارة هو 15 موظفاً.");
+    if (tbody.rows.length >= 15) return alert("الحد الأقصى المسموح به هو 15 موظفاً.");
     const row = tbody.insertRow();
     row.innerHTML = `
       <td style="text-align:center; font-weight:bold;">${tbody.rows.length}</td>
@@ -694,7 +847,7 @@
 
   function addEquipRow() {
     const tbody = document.querySelector("#equipTable tbody");
-    if (tbody.rows.length >= 10) return alert("الحد الأقصى المسموح به في الاستمارة هو 10 معدات.");
+    if (tbody.rows.length >= 10) return alert("الحد الأقصى المسموح به هو 10 معدات.");
     const row = tbody.insertRow();
     row.innerHTML = `
       <td style="text-align:center; font-weight:bold;">${tbody.rows.length}</td>
@@ -722,7 +875,7 @@
       </td>
       <td><select class="w-addr">${govOptions}</select></td>
       <td><input type="email" class="w-email" dir="ltr" style="text-align:right" placeholder="email@client.org"></td>
-      <td><input type="tel" class="w-phone" dir="ltr" style="text-align:right" placeholder="77xxxxxxx"></td>
+      <td><input type="tel" class="w-phone" dir="ltr" style="text-align:right" placeholder="77xxxxxxx / 71xxxxxxx"></td>
     `;
   }
 
@@ -731,25 +884,24 @@
     errors.push(msg);
   }
 
-  // التحقق الشامل والدقيق من كل حقل
+  // 6. نظام التحقق الصارم والشامل
   function validateAllFields() {
     document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
     let errors = [];
 
-    // تعبير نمطي للأسماء الحقيقية (يمنع الأرقام فقط أو الرموز العشوائية ويشترط حروف عربية أو إنجليزية)
     const validTextName = /^(?=.*[\u0600-\u06FFa-zA-Z])[\u0600-\u06FFa-zA-Z0-9\s\.\-\&\(\)\/]{5,120}$/;
     const phoneRegex = /^(\+?967|00967|0)?(7[01378]\d{7}|[1-7]\d{5,7})$/;
+    const sabafonRegex = /^(\+?967|00967|0)?(71\d{7})$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    // 1. فحص المعلومات الأساسية
     const comp = document.getElementById("companyName");
     if (!validTextName.test(comp.value.trim()) || comp.value.trim().split(/\s+/).length < 2) {
-      flagError(comp, errors, "اسم الشركة غير مكتمل: يرجى كتابة الاسم التجاري الكامل (لا يقل عن كلمتين، ولا يُقبل إدخال أرقام فقط).");
+      flagError(comp, errors, "اسم الشركة غير مكتمل: يرجى كتابة الاسم التجاري الكامل (لا يقل عن كلمتين، وبدون أرقام فقط).");
     }
 
     const email = document.getElementById("email");
     if (!emailRegex.test(email.value.trim())) {
-      flagError(email, errors, "البريد الإلكتروني الرسمي غير صحيح (مثال صحيح: name@domain.com).");
+      flagError(email, errors, "البريد الإلكتروني الرسمي غير صحيح.");
     }
 
     const city = document.getElementById("city");
@@ -763,14 +915,23 @@
     const phone = document.getElementById("phone");
     const cleanPhone = phone.value.trim().replace(/[\s\-]/g, "");
     if (!phoneRegex.test(cleanPhone)) {
-      flagError(phone, errors, "رقم الهاتف الرسمي غير صحيح: يجب إدخال رقم جوال يمني صحيح من 9 أرقام يبدأ بـ (77, 78, 73, 71, 70) أو هاتف أرضي.");
+      flagError(phone, errors, "رقم الهاتف الرئيسي غير صحيح: يجب إدخال رقم يمني صحيح (9 أرقام يبدأ بـ 77, 78, 73, 71, 70 أو هاتف أرضي).");
+    }
+
+    // التحقق من رقم سبأفون (إلزامي لمأرب، وإن كُتب في غيرها يجب أن يبدأ بـ 71)
+    const sabafon = document.getElementById("sabafon");
+    const cleanSaba = sabafon.value.trim().replace(/[\s\-]/g, "");
+    if (city.value === "مأرب" && !cleanSaba) {
+      flagError(sabafon, errors, "لموردي محافظة مأرب: إدخال رقم اتصال سبأفون (71xxxxxxx) إلزامي.");
+    } else if (cleanSaba && !sabafonRegex.test(cleanSaba)) {
+      flagError(sabafon, errors, "رقم سبأفون غير صحيح: يجب أن يبدأ بـ (71) ويتكون من 9 أرقام.");
     }
 
     const legal = document.getElementById("legalStatus");
-    if (!legal.value) flagError(legal, errors, "يرجى اختيار الوضع القانوني للشركة من القائمة.");
+    if (!legal.value) flagError(legal, errors, "يرجى اختيار الوضع القانوني للشركة.");
 
     const owner = document.getElementById("ownership");
-    if (!owner.value) flagError(owner, errors, "يرجى اختيار نوع الملكية من القائمة.");
+    if (!owner.value) flagError(owner, errors, "يرجى اختيار نوع الملكية.");
 
     const regNum = document.getElementById("regNumber");
     if (regNum.value.trim().length < 2) flagError(regNum, errors, "يرجى إدخال رقم السجل التجاري.");
@@ -778,55 +939,51 @@
     const regYear = document.getElementById("regYear");
     const rYearVal = parseInt(regYear.value, 10);
     if (isNaN(rYearVal) || rYearVal < 1950 || rYearVal > 2026) {
-      flagError(regYear, errors, "سنة التسجيل غير منطقية: يجب أن تكون بين 1950 و 2026.");
+      flagError(regYear, errors, "سنة التسجيل غير منطقية (يجب أن تكون بين 1950 و 2026).");
     }
 
     const regPlace = document.getElementById("regPlace");
-    if (!regPlace.value) flagError(regPlace, errors, "يرجى اختيار مكان إصدار السجل التجاري من القائمة.");
+    if (!regPlace.value) flagError(regPlace, errors, "يرجى اختيار مكان إصدار السجل التجاري.");
 
     const exec = document.getElementById("execManagement");
-    if (exec.value.trim().length < 10 || !/[\u0600-\u06FFa-zA-Z]{3,}/.test(exec.value)) {
+    if (exec.value.trim().length < 10) {
       flagError(exec, errors, "يرجى كتابة أسماء الإدارة التنفيذية / المفوضين بالتوقيع مع صفاتهم وأرقام هواتفهم.");
     }
 
-    // 2. فحص الأنشطة والخبرة
     const act1 = document.getElementById("act1");
-    if (!act1.value) flagError(act1, errors, "يرجى اختيار النشاط الأساسي الأول للشركة من القائمة المنسدلة.");
+    if (!act1.value) flagError(act1, errors, "يرجى اختيار النشاط الأساسي الأول للشركة من القائمة.");
 
     const credit = document.getElementById("creditSale");
-    if (!credit.value) flagError(credit, errors, "يرجى تحديد قبول البيع بالآجل (نعم / لا).");
+    if (!credit.value) flagError(credit, errors, "يرجى تحديد قبول البيع بالآجل.");
 
     const expYears = document.getElementById("expYears");
     const expVal = parseInt(expYears.value, 10);
     if (isNaN(expVal) || expVal < 1 || expVal > 75) {
-      flagError(expYears, errors, "إجمالي سنوات الخبرة يجب أن يكون رقماً صحيحاً بين 1 و 75 سنة.");
-    } else if (!isNaN(rYearVal) && expVal > (2026 - rYearVal + 5)) {
-      flagError(expYears, errors, `عدد سنوات الخبرة (${expVal}) يتعارض مع سنة تأسيس الشركة (${rYearVal})!`);
+      flagError(expYears, errors, "إجمالي سنوات الخبرة يجب أن يكون رقماً بين 1 و 75 سنة.");
     }
 
-    // 3. فحص المعلومات البنكية
     const bankName = document.getElementById("bankName");
-    if (!bankName.value) flagError(bankName, errors, "يرجى اختيار اسم البنك المعتمد من القائمة.");
+    if (!bankName.value) flagError(bankName, errors, "يرجى اختيار اسم البنك المعتمد.");
 
     const bankAddr = document.getElementById("bankAddress");
     if (bankAddr.value.trim().length < 4) flagError(bankAddr, errors, "يرجى كتابة عنوان البنك والفرع.");
 
     const accName = document.getElementById("accountName");
     if (!validTextName.test(accName.value.trim())) {
-      flagError(accName, errors, "اسم الحساب البنكي غير صالح: يجب كتابة اسم الحساب الرسمي للشركة بالأحرف.");
+      flagError(accName, errors, "اسم الحساب البنكي غير صالح: يجب أن يكون باسم الشركة الرسمي.");
     }
 
     const usd = document.getElementById("accUSD").value.trim();
     const yer = document.getElementById("accYER").value.trim();
     const sar = document.getElementById("accSAR").value.trim();
     if (!usd && !yer && !sar) {
-      flagError(document.getElementById("accUSD"), errors, "يجب إدخال رقم حساب بنكي واحد على الأقل (بالدولار أو الريال اليمني أو الريال السعودي).");
+      flagError(document.getElementById("accUSD"), errors, "يجب إدخال رقم حساب بنكي واحد على الأقل (USD أو YER أو SAR).");
     }
 
     const transfer = document.getElementById("bankTransfer");
-    if (!transfer.value) flagError(transfer, errors, "يرجى تحديد قبول التحويل البنكي (نعم / لا).");
+    if (!transfer.value) flagError(transfer, errors, "يرجى تحديد قبول التحويل البنكي.");
 
-    // 4. فحص جدول التواريخ والوثائق القانونية بدقة
+    // فحص تواريخ الوثائق القانونية
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -844,21 +1001,13 @@
       const expVal = expEl.value;
 
       if (isReq || numVal || issVal || expVal) {
-        if (numVal.length < 2) {
-          flagError(numEl, errors, `يرجى إدخال رقم وثيقة صحيح لـ (${docName}).`);
-        }
+        if (numVal.length < 2) flagError(numEl, errors, `يرجى إدخال رقم وثيقة صحيح لـ (${docName}).`);
         if (!issVal) {
           flagError(issEl, errors, `يرجى تحديد تاريخ الإصدار لـ (${docName}).`);
         } else {
           const dIss = new Date(issVal);
-          if (dIss > today) {
-            flagError(issEl, errors, `خطأ في (${docName}): تاريخ الإصدار لا يمكن أن يكون في المستقبل!`);
-          }
-          if (dIss.getFullYear() < 1990) {
-            flagError(issEl, errors, `خطأ في (${docName}): تاريخ الإصدار قديم جداً أو غير صحيح.`);
-          }
+          if (dIss > today) flagError(issEl, errors, `خطأ في (${docName}): تاريخ الإصدار لا يمكن أن يكون في المستقبل!`);
         }
-
         if (!expVal) {
           flagError(expEl, errors, `يرجى تحديد تاريخ الانتهاء لـ (${docName}).`);
         } else {
@@ -866,15 +1015,15 @@
           if (issVal && dExp <= new Date(issVal)) {
             flagError(expEl, errors, `خطأ في (${docName}): تاريخ الانتهاء يجب أن يكون بعد تاريخ الإصدار!`);
           } else if (dExp < today) {
-            flagError(expEl, errors, `وثيقة (${docName}) منتهية الصلاحية بتاريخ (${expVal})! يشترط سريان كافة الوثائق الرسمية.`);
+            flagError(expEl, errors, `وثيقة (${docName}) منتهية الصلاحية بتاريخ (${expVal})! يشترط سريان كافة الوثائق.`);
           }
         }
       }
     });
 
-    // 5. فحص الكادر الوظيفي وتطابق الأعداد
+    // فحص الكادر الوظيفي
     const validStruct = document.getElementById("validStructure");
-    if (!validStruct.value) flagError(validStruct, errors, "يرجى تحديد ما إذا كان للشركة هيكل تنظيمي معتمد.");
+    if (!validStruct.value) flagError(validStruct, errors, "يرجى تحديد وجود هيكل تنظيمي معتمد.");
 
     const ftStaffEl = document.getElementById("fullTimeStaff");
     const natStaffEl = document.getElementById("nationalStaff");
@@ -884,13 +1033,12 @@
     const natVal = parseInt(natStaffEl.value, 10);
     const expatVal = parseInt(expStaffEl.value, 10) || 0;
 
-    if (isNaN(ftVal) || ftVal < 1) flagError(ftStaffEl, errors, "يرجى إدخال إجمالي عدد الموظفين بدوام كامل.");
+    if (isNaN(ftVal) || ftVal < 1) flagError(ftStaffEl, errors, "يرجى إدخال إجمالي عدد الموظفين.");
     if (isNaN(natVal) || natVal < 1) flagError(natStaffEl, errors, "يرجى إدخال عدد الموظفين المحليين.");
     if (!isNaN(ftVal) && !isNaN(natVal) && (natVal + expatVal !== ftVal)) {
-      flagError(ftStaffEl, errors, `عدم تطابق في أعداد الموظفين: مجموع الموظفين المحليين (${natVal}) + الأجانب (${expatVal}) يجب أن يساوي إجمالي الموظفين (${ftVal}).`);
+      flagError(ftStaffEl, errors, `عدم تطابق أعداد الموظفين: مجموع المحليين (${natVal}) + الأجانب (${expatVal}) يجب أن يساوي الإجمالي (${ftVal}).`);
     }
 
-    // فحص الموظف الأول على الأقل في جدول المؤهلات
     const firstRow = document.querySelector("#staffTable tbody tr");
     const stName = firstRow.querySelector(".st-name");
     const stRole = firstRow.querySelector(".st-role");
@@ -902,7 +1050,7 @@
     if (stQual.value.trim().length < 3) flagError(stQual, errors, "يرجى إدخال المؤهل العلمي للموظف الأول.");
     if (!stExp.value || parseInt(stExp.value, 10) < 0) flagError(stExp, errors, "يرجى تحديد سنوات خبرة الموظف الأول.");
 
-    // 6. فحص جدول الأعمال السابقة (آخر 3 سنوات حصرياً)
+    // فحص الأعمال السابقة
     const workRows = document.querySelectorAll("#worksTable tbody tr.work-row");
     workRows.forEach((tr, idx) => {
       const cEl = tr.querySelector(".w-client");
@@ -913,43 +1061,26 @@
 
       const hasAny = cEl.value.trim() || yEl.value || aEl.value || emEl.value.trim() || phEl.value.trim();
       if (idx === 0 || hasAny) {
-        if (!validTextName.test(cEl.value.trim())) {
-          flagError(cEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى إدخال اسم صحيح للعميل أو المنظمة.`);
-        }
-        if (!yEl.value) {
-          flagError(yEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى اختيار سنة تنفيذ العقد من القائمة (2023 - 2026).`);
-        }
-        if (!aEl.value) {
-          flagError(aEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى اختيار المحافظة من القائمة.`);
-        }
-        if (emEl.value.trim() && !emailRegex.test(emEl.value.trim())) {
-          flagError(emEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): البريد الإلكتروني للعميل غير صحيح.`);
-        }
+        if (!validTextName.test(cEl.value.trim())) flagError(cEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى إدخال اسم العميل/المنظمة.`);
+        if (!yEl.value) flagError(yEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى اختيار السنة من القائمة.`);
+        if (!aEl.value) flagError(aEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى اختيار المحافظة.`);
+        if (emEl.value.trim() && !emailRegex.test(emEl.value.trim())) flagError(emEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): البريد الإلكتروني غير صحيح.`);
         const cleanWPhone = phEl.value.trim().replace(/[\s\-]/g, "");
-        if (!phoneRegex.test(cleanWPhone)) {
-          flagError(phEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى إدخال رقم هاتف يمني صحيح للجهة المرجعية.`);
-        }
+        if (!phoneRegex.test(cleanWPhone)) flagError(phEl, errors, `في جدول الأعمال السابقة (سطر ${idx+1}): يرجى إدخال رقم هاتف يمني صحيح للعميل المرجعي.`);
       }
     });
 
-    // 7. فحص الملف المرفق والإقرار
     const fileInput = document.getElementById("attachment");
     if (fileInput.files.length === 0) {
-      flagError(fileInput, errors, "يرجى اختيار وإرفاق ملف الوثائق الرسمية المدمج (PDF).");
+      flagError(fileInput, errors, "يرجى إرفاق ملف الوثائق الرسمية المدمج (PDF).");
     } else {
       const f = fileInput.files[0];
-      if (!f.name.toLowerCase().endsWith(".pdf")) {
-        flagError(fileInput, errors, "نوع الملف غير مقبول: يجب أن يكون الملف بصيغة (PDF) فقط.");
-      }
-      if (f.size > 8 * 1024 * 1024) {
-        flagError(fileInput, errors, "حجم ملف الـ PDF كبير جداً (أكبر من 8 ميجابايت)، يرجى ضغط الملف أولاً لضمان سرعة رفعه.");
-      }
+      if (!f.name.toLowerCase().endsWith(".pdf")) flagError(fileInput, errors, "يجب أن يكون الملف المرفق بصيغة (PDF) فقط.");
+      if (f.size > 8 * 1024 * 1024) flagError(fileInput, errors, "حجم ملف الـ PDF يتجاوز 8 ميجابايت، يرجى ضغط الملف أولاً.");
     }
 
     const decl = document.getElementById("declarationCheck");
-    if (!decl.checked) {
-      errors.push("يجب وضع علامة (✓) للموافقة على الإقرار والتعهد بصحة البيانات في القسم الثامن.");
-    }
+    if (!decl.checked) errors.push("يجب الموافقة على الإقرار والتعهد بصحة البيانات في القسم الثامن.");
 
     const banner = document.getElementById("errorBanner");
     const list = document.getElementById("errorList");
@@ -981,7 +1112,7 @@
     const btn = document.getElementById("submitBtn");
     const statusNote = document.getElementById("statusNote");
     btn.disabled = true;
-    btn.innerText = "جاري رفع الملفات وإرسال البيانات... يرجى الانتظار ⏳";
+    btn.innerText = "جاري رفع الملفات وتوثيق البيانات لدى CRB... ⏳";
     statusNote.style.display = "block";
 
     try {
@@ -1004,14 +1135,17 @@
       });
 
       const regCombined = `رقم السجل: ${document.getElementById("regNumber").value.trim()} | سنة التأسيس: ${document.getElementById("regYear").value} | مكان الإصدار: ${document.getElementById("regPlace").value}`;
+      const compName = document.getElementById("companyName").value.trim();
+      const userEmail = document.getElementById("email").value.trim();
 
       const payload = {
-        companyName: document.getElementById("companyName").value.trim(),
-        email: document.getElementById("email").value.trim(),
+        entryTime: document.getElementById("entryTimeInput").value,
+        companyName: compName,
+        email: userEmail,
         address: document.getElementById("address").value.trim(),
         city: document.getElementById("city").value,
         phone: document.getElementById("phone").value.trim(),
-        fax: document.getElementById("fax").value.trim(),
+        sabafon: document.getElementById("sabafon").value.trim(),
         legalStatus: document.getElementById("legalStatus").value,
         ownership: document.getElementById("ownership").value,
         regDetails: regCombined,
@@ -1041,7 +1175,6 @@
         fileData: base64File
       };
 
-      // إرسال مضمون لا يعلق حتى مع قيود المتصفح (CORS)
       await fetch(SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
@@ -1050,11 +1183,15 @@
       });
 
       document.getElementById("formContainer").style.display = "none";
+      document.getElementById("userGreetingCard").style.display = "none";
+      document.getElementById("personalSuccessMsg").innerText = `أهلاً بكم (${compName} - ${userEmail})، نتطلع لشراكة مثمرة ومستدامة معكم!`;
       document.getElementById("successModal").style.display = "block";
+      document.getElementById("progressBar").style.width = "100%";
+      document.getElementById("completionText").innerText = "نسبة إكمال الاستمارة: 100% ✅";
       window.scrollTo({ top: 0, behavior: "smooth" });
 
     } catch (err) {
-      alert("حدث خطأ في الاتصال بالشبكة أثناء رفع الملف، يرجى التأكد من سرعة الإنترنت والمحاولة مرة أخرى.");
+      alert("حدث خطأ في الاتصال بالشبكة أثناء رفع الملف، يرجى التأكد من الإنترنت والمحاولة مرة أخرى.");
       btn.disabled = false;
       btn.innerText = "إرسال واعتماد طلب التأهيل المسبق | Submit Application";
       statusNote.style.display = "none";
