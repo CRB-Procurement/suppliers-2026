@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التأهيل المسبق للموردين 2026-2027 | منتدى الإغاثة والبناء CRB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a4d8c;
+      --secondary: #1e88e5;
+      --accent: #00897b;
+      --bg: #f4f7fa;
+      --border: #dce4ec;
+    }
+    * { box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+    body { background-color: var(--bg); margin: 0; padding: 20px; color: #2c3e50; }
+    .container { max-width: 1050px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); overflow: hidden; }
+    
+    .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; padding: 30px; text-align: center; border-bottom: 5px solid var(--accent); }
+    .header h1 { margin: 5px 0; font-size: 26px; }
+    .header h2 { margin: 5px 0 15px; font-size: 18px; font-weight: 400; opacity: 0.95; }
+    .badge { background: rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 20px; font-size: 14px; display: inline-block; }
+
+    .intro-box { background: #eef6ff; border-right: 5px solid var(--primary); padding: 20px; margin: 25px; border-radius: 8px; font-size: 14.5px; line-height: 1.8; }
+    
+    .section { margin: 25px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .section-title { background: #d0e2f2; color: var(--primary); padding: 12px 20px; font-weight: 700; font-size: 17px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .section-body { padding: 20px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-weight: 600; font-size: 14px; margin-bottom: 6px; color: #34495e; }
+    label span.req { color: #e74c3c; }
+    .hint { font-size: 12px; color: #7f8c8d; margin-top: 4px; }
+    input, select, textarea { padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; transition: 0.2s; background: #fcfdfe; }
+    input:focus, select:focus, textarea:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 0 3px rgba(30,136,229,0.15); background: #fff; }
+
+    .table-responsive { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+    th { background: #8ab4f8; color: #1a202c; padding: 10px; border: 1px solid #b0c4de; text-align: center; }
+    td { padding: 6px; border: 1px solid var(--border); }
+    td input, td select { width: 100%; border: 1px solid transparent; background: transparent; padding: 6px; }
+    td input:focus, td select:focus { border: 1px solid var(--secondary); background: #fff; }
+
+    .btn-add { background: #f1f5f9; color: var(--primary); border: 1px dashed var(--primary); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 10px; display: inline-block; }
+    .btn-add:hover { background: #e2e8f0; }
+    .submit-area { padding: 25px; text-align: center; background: #f8fafc; border-top: 1px solid var(--border); }
+    .btn-submit { background: var(--accent); color: #fff; border: none; padding: 14px 45px; font-size: 18px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 12px rgba(0,137,123,0.3); }
+    .btn-submit:hover { background: #00695c; transform: translateY(-1px); }
+    .btn-submit:disabled { background: #94a3b8; cursor: not-allowed; }
+
+    #successModal { display: none; padding: 40px; text-align: center; }
+    #successModal h2 { color: var(--accent); font-size: 26px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>منتدى الإغاثة والبناء - CRB</h1>
+    <h2>استمارة التأهيل المسبق للموردين ومقدمي الخدمات | Suppliers / Service Providers Pre-qualification Statement</h2>
+    <div class="badge">قائمة الموردين المعتمدين للعام 2026 - 2027م</div>
+  </div>
+
+  <div id="formContainer">
+    <div class="intro-box">
+      <strong>أ. قوائم الموردين والشروط العامة:</strong><br>
+      تعكس عملية تأهيل الموردين وتسجيلهم حرص <strong>منتدى الإغاثة والبناء (CRB)</strong> على تطوير وتحسين العمل للوصول إلى أعلى مستويات التميز في تحقيق الشفافية والمصداقية عند تطبيق نظام التوريد والشراء الخاص به. يتم تسجيل موردي المنتدى وتأهيلهم من خلال تصنيفهم وفقاً لمجال تخصصهم لإعداد قائمة الموردين للعام 2026-2027م.<br>
+      <strong>📌 تلميح هام:</strong> يرجى تعبئة كافة الحقول بدقة ومطابقة للوثائق الرسمية السارية، وإرفاق ملف (PDF) في نهاية النموذج يحتوي على نسخ الوثائق الرسمية.
+    </div>
+
+    <form id="supplierForm">
+      
+      <!-- 1. المعلومات الأساسية -->
+      <div class="section">
+        <div class="section-title">
+          <span>أولاً: المعلومات الأساسية (Basic Information)</span>
+        </div>
+        <div class="section-body grid">
+          <div class="form-group">
+            <label>اسم الشركة / المؤسسة (Name of Company) <span class="req">*</span></label>
+            <input type="text" id="companyName" required placeholder="الاسم التجاري الكامل كما في السجل">
+          </div>
+          <div class="form-group">
+            <label>البريد الإلكتروني الرسمي (Email) <span class="req">*</span></label>
+            <input type="email" id="email" required placeholder="سيصلك إشعار التأكيد على هذا البريد">
+          </div>
+          <div class="form-group">
+            <label>العنوان التفصيلي (Address) <span class="req">*</span></label>
+            <input type="text" id="address" required placeholder="الشارع - الحي - أقرب معلم">
+          </div>
+          <div class="form-group">
+            <label>المدينة / المحافظة (City – Town) <span class="req">*</span></label>
+            <input type="text" id="city" required placeholder="مثال: صنعاء / عدن / تعز / مأرب...">
+          </div>
+          <div class="form-group">
+            <label>رقم الهاتف / الجوال (Telephone) <span class="req">*</span></label>
+            <input type="text" id="phone" required placeholder="رقم متاح للتواصل الرسمي">
+          </div>
+          <div class="form-group">
+            <label>الفاكس (Fax)</label>
+            <input type="text" id="fax" placeholder="اختياري">
+          </div>
+          <div class="form-group">
+            <label>الوضع القانوني (Legal Status) <span class="req">*</span></label>
+            <select id="legalStatus" required>
+              <option value="">-- اختر الوضع القانوني --</option>
+              <option value="مؤسسة فردية">مؤسسة فردية (Sole Proprietorship)</option>
+              <option value="شركة ذات مسؤولية محدودة">شركة ذات مسؤولية محدودة (LLC)</option>
+              <option value="شركة مساهمة">شركة مساهمة (Joint Stock)</option>
+              <option value="شركة تضامنية">شركة تضامنية (Partnership)</option>
+              <option value="وكيل معتمد">وكيل معتمد (Authorized Agent)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>نوع الملكية (Ownership) <span class="req">*</span></label>
+            <select id="ownership" required>
+              <option value="خاص (Private)">خاص (Private)</option>
+              <option value="عام (Public)">عام (Public)</option>
+              <option value="حكومي (State)">حكومي (State)</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>رقم وسنة ومكان التسجيل (Number, year and place of registration - copy enclosed) <span class="req">*</span></label>
+            <input type="text" id="regDetails" required placeholder="مثال: سجل رقم (12345) - لسنة 2019م - مكان الإصدار: أمانة العاصمة / عدن">
+          </div>
+          <div class="form-group full">
+            <label>الإدارة التنفيذية / أعضاء مجلس الإدارة (Executive Management / Board Members) <span class="req">*</span></label>
+            <textarea id="execManagement" rows="2" required placeholder="اذكر أسماء المدير العام والمفوضين بالتوقيع مع مسمياتهم الوظيفية وأرقام الهواتف"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. الأنشطة الأساسية -->
+      <div class="section">
+        <div class="section-title">
+          <span>ثانياً: الأنشطة الأساسية والخبرة (Basic activities - max. 3)</span>
+        </div>
+        <div class="section-body grid">
+          <div class="form-group">
+            <label>النشاط الأساسي 1 (Activity 1) <span class="req">*</span></label>
+            <input type="text" id="act1" required placeholder="المجال الرئيسي الأول للتخصص">
+          </div>
+          <div class="form-group">
+            <label>النشاط الأساسي 2 (Activity 2)</label>
+            <input type="text" id="act2" placeholder="المجال الثاني إن وجد">
+          </div>
+          <div class="form-group">
+            <label>النشاط الأساسي 3 (Activity 3)</label>
+            <input type="text" id="act3" placeholder="المجال الثالث إن وجد">
+          </div>
+          <div class="form-group">
+            <label>البيع بالآجل (Selling on Credit - Yes/No) <span class="req">*</span></label>
+            <select id="creditSale" required>
+              <option value="نعم (Yes)">نعم (Yes)</option>
+              <option value="لا (No)">لا (No)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>إجمالي سنوات الخبرة (Total years of Experience) <span class="req">*</span></label>
+            <input type="number" id="expYears" min="0" required placeholder="عدد السنوات بالأرقام">
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. المعلومات البنكية -->
+      <div class="section">
+        <div class="section-title">
+          <span>ثالثاً: المعلومات البنكية (Banking Information)</span>
+        </div>
+        <div class="section-body grid">
+          <div class="form-group">
+            <label>اسم البنك (Bank Name) <span class="req">*</span></label>
+            <input type="text" id="bankName" required>
+          </div>
+          <div class="form-group">
+            <label>عنوان البنك / الفرع (Bank Address) <span class="req">*</span></label>
+            <input type="text" id="bankAddress" required>
+          </div>
+          <div class="form-group">
+            <label>اسم الحساب الرسمي (Account Name) <span class="req">*</span></label>
+            <input type="text" id="accountName" required placeholder="يجب أن يطابق الاسم التجاري للشركة">
+          </div>
+          <div class="form-group">
+            <label>رقم الحساب بالدولار (Account # USD)</label>
+            <input type="text" id="accUSD">
+          </div>
+          <div class="form-group">
+            <label>رقم الحساب بالريال اليمني (Account # YER)</label>
+            <input type="text" id="accYER">
+          </div>
+          <div class="form-group">
+            <label>رقم الحساب بالريال السعودي (Account # SR)</label>
+            <input type="text" id="accSAR">
+          </div>
+          <div class="form-group">
+            <label>قبول التحويل البنكي (Accepting Bank Transfer) <span class="req">*</span></label>
+            <select id="bankTransfer" required>
+              <option value="نعم (Yes)">نعم (Yes)</option>
+              <option value="لا (No)">لا (No)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. جدول الأهلية القانونية للعمل -->
+      <div class="section">
+        <div class="section-title">
+          <span>رابعاً: الأهلية القانونية والبطاقات الرسمية (Work Eligibility)</span>
+        </div>
+        <div class="section-body table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>نوع الوثيقة (Document Type)</th>
+                <th>رقم البطاقة / الوثيقة (Card #)</th>
+                <th>تاريخ الإصدار (Date of Issue)</th>
+                <th>تاريخ الانتهاء (Date of Expiry)</th>
+              </tr>
+            </thead>
+            <tbody id="eligibilityBody">
+              <tr>
+                <td><strong>البطاقة التجارية (Commercial Card #) *</strong></td>
+                <td><input type="text" required placeholder="رقم البطاقة"></td>
+                <td><input type="date" required></td>
+                <td><input type="date" required></td>
+              </tr>
+              <tr>
+                <td><strong>رخصة مزاولة المهنة (Work Permission #) *</strong></td>
+                <td><input type="text" required placeholder="رقم الرخصة"></td>
+                <td><input type="date" required></td>
+                <td><input type="date" required></td>
+              </tr>
+              <tr>
+                <td><strong>البطاقة الضريبية (Taxation Card #) *</strong></td>
+                <td><input type="text" required placeholder="الرقم الضريبي"></td>
+                <td><input type="date" required></td>
+                <td><input type="date" required></td>
+              </tr>
+              <tr>
+                <td><strong>بطاقة التأمينات (Social Insurance Card #)</strong></td>
+                <td><input type="text" placeholder="إن وجد"></td>
+                <td><input type="date"></td>
+                <td><input type="date"></td>
+              </tr>
+              <tr>
+                <td><strong>البطاقة الزكوية (Zakat Card #) *</strong></td>
+                <td><input type="text" required placeholder="رقم البطاقة الزكوية"></td>
+                <td><input type="date" required></td>
+                <td><input type="date" required></td>
+              </tr>
+              <tr>
+                <td><input type="text" placeholder="وثيقة أخرى 1 (اختياري)"></td>
+                <td><input type="text" placeholder="الرقم"></td>
+                <td><input type="date"></td>
+                <td><input type="date"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5. تفاصيل الكادر الوظيفي -->
+      <div class="section">
+        <div class="section-title">
+          <span>خامساً: تفاصيل الكادر الوظيفي (Staffing Details)</span>
+        </div>
+        <div class="section-body">
+          <div class="grid" style="margin-bottom: 20px;">
+            <div class="form-group">
+              <label>هل يوجد هيكل تنظيمي معتمد؟ (Has valid Structure) <span class="req">*</span></label>
+              <select id="validStructure" required>
+                <option value="نعم (Yes)">نعم (Yes)</option>
+                <option value="لا (No)">لا (No)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>عدد الموظفين بدوام كامل (Full time employed) <span class="req">*</span></label>
+              <input type="number" id="fullTimeStaff" min="0" required>
+            </div>
+            <div class="form-group">
+              <label>عدد الموظفين المحليين (National Staff) <span class="req">*</span></label>
+              <input type="number" id="nationalStaff" min="0" required>
+            </div>
+            <div class="form-group">
+              <label>عدد الموظفين الأجانب (Foreign Staff/Expats) <span class="req">*</span></label>
+              <input type="number" id="expatStaff" min="0" value="0" required>
+            </div>
+          </div>
+
+          <label><strong>مؤهلات الكادر الوظيفي الرئيسي (Staff qualification - حتى 15 موظفاً):</strong></label>
+          <div class="table-responsive">
+            <table id="staffTable">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">#</th>
+                  <th>الاسم والمسمى الوظيفي والتخصص والمؤهل العلمي وسنوات الخبرة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td><input type="text" required placeholder="مثال: م. أحمد علي - مدير مشاريع - بكالوريوس هندسة مدنية - خبرة 8 سنوات"></td></tr>
+                <tr><td>2</td><td><input type="text" placeholder="بيانات الموظف الثاني"></td></tr>
+                <tr><td>3</td><td><input type="text" placeholder="بيانات الموظف الثالث"></td></tr>
+              </tbody>
+            </table>
+            <button type="button" class="btn-add" onclick="addStaffRow()">+ إضافة سطر موظف جديد (حتى 15)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. قائمة المعدات -->
+      <div class="section">
+        <div class="section-title">
+          <span>سادساً: قائمة المعدات والآليات (List of equipment: vehicles, scaffolding, etc)</span>
+        </div>
+        <div class="section-body table-responsive">
+          <table id="equipTable">
+            <thead>
+              <tr>
+                <th style="width: 50px;">#</th>
+                <th>الاسم / النوع (Name/Type)</th>
+                <th>سنة الصنع (Year)</th>
+                <th>الموديل (Model)</th>
+                <th>ملك / إيجار (Owned/Hired)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><input type="text" placeholder="مثال: شاحنة نقل / رافعة / مخزن..."></td>
+                <td><input type="text" placeholder="2020"></td>
+                <td><input type="text" placeholder="الموديل"></td>
+                <td>
+                  <select><option value="">-- اختر --</option><option value="ملك (Owned)">ملك (Owned)</option><option value="إيجار (Hired)">إيجار (Hired)</option></select>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><input type="text"></td><td><input type="text"></td><td><input type="text"></td>
+                <td><select><option value="">-- اختر --</option><option value="ملك (Owned)">ملك (Owned)</option><option value="إيجار (Hired)">إيجار (Hired)</option></select></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn-add" onclick="addEquipRow()">+ إضافة معدة أخرى (حتى 10)</button>
+        </div>
+      </div>
+
+      <!-- 7. الأعمال المنفذة خلال آخر 3 سنوات -->
+      <div class="section">
+        <div class="section-title">
+          <span>سابعاً: قائمة الأعمال المنفذة خلال الثلاث السنوات الأخيرة (List of works for the last three years)</span>
+        </div>
+        <div class="section-body table-responsive">
+          <table id="worksTable">
+            <thead>
+              <tr>
+                <th>اسم العميل / المنظمة (Name of Client)</th>
+                <th>السنة (Year)</th>
+                <th>العنوان (Address)</th>
+                <th>البريد الإلكتروني (Email)</th>
+                <th>رقم الهاتف (Phone#)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" required placeholder="اسم الجهة أو المنظمة"></td>
+                <td><input type="text" required placeholder="2025"></td>
+                <td><input type="text" required placeholder="المدينة"></td>
+                <td><input type="email" placeholder="إيميل الجهة المرجعية"></td>
+                <td><input type="text" required placeholder="رقم هاتف المرجع"></td>
+              </tr>
+              <tr>
+                <td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="email"></td><td><input type="text"></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn-add" onclick="addWorkRow()">+ إضافة عمل / عقد آخر</button>
+        </div>
+      </div>
+
+      <!-- 8. رفع الوثائق والإقرار -->
+      <div class="section">
+        <div class="section-title">
+          <span>ثامناً: إرفاق الوثائق الرسمية والإقرار (Attachments & Declaration)</span>
+        </div>
+        <div class="section-body">
+          <div class="form-group full" style="margin-bottom: 18px;">
+            <label>إرفاق ملف الوثائق الرسمية المدمج (PDF فقط - بحد أقصى 10 ميجابايت) <span class="req">*</span></label>
+            <input type="file" id="attachment" accept=".pdf" required>
+            <span class="hint">يرجى دمج (السجل التجاري، رخصة المهنة، البطاقة الضريبية، الزكوية، والهيكل التنظيمي) في ملف PDF واحد واضح.</span>
+          </div>
+          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+            <input type="checkbox" required style="width: 20px; height: 20px;">
+            <span>أقر بصحة كافة البيانات المدونة أعلاه ومطابقتها للوثائق الرسمية السارية، وأوافق على قيام لجنة المشتريات في منتدى الإغاثة والبناء (CRB) بالتحقق الميداني منها.</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <button type="submit" class="btn-submit" id="submitBtn">إرسال طلب التأهيل المسبق | Submit Application</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- شاشة التهنئة بعد الإرسال -->
+  <div id="successModal">
+    <h2>✅ مبارك عليك التقديم لدى منتدى الإغاثة والبناء - CRB</h2>
+    <p style="font-size: 18px; font-weight: 600;">نتطلع لشراكة مثمرة ومستدامة معكم!</p>
+    <p style="color: #555; max-width: 600px; margin: 15px auto; line-height: 1.8;">
+      تم استلام استمارة التأهيل المسبق للموردين ومقدمي الخدمات للعام (2026 - 2027م) ومرفقاتكم بنجاح، كما تم إرسال إشعار تأكيد آلي إلى بريدكم الإلكتروني.
+    </p>
+  </div>
+</div>
+
+<script>
+  // تم ربط الرابط الخاص بك هنا:
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwHmjBYn9kbvxF7t91lQPNH1k43bpd7qGXdTKyYRnhctwOMY0nphYn72ZfwHoSLv-fU/exec";
+
+  function addStaffRow() {
+    const tbody = document.querySelector("#staffTable tbody");
+    if (tbody.rows.length >= 15) return alert("الحد الأقصى 15 سطراً كما في الاستمارة.");
+    const row = tbody.insertRow();
+    row.innerHTML = `<td>${tbody.rows.length}</td><td><input type="text" placeholder="الاسم - المسمى الوظيفي - المؤهل - سنوات الخبرة"></td>`;
+  }
+
+  function addEquipRow() {
+    const tbody = document.querySelector("#equipTable tbody");
+    if (tbody.rows.length >= 10) return alert("الحد الأقصى 10 معدات كما في الاستمارة.");
+    const row = tbody.insertRow();
+    row.innerHTML = `<td>${tbody.rows.length}</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td>
+      <td><select><option value="">-- اختر --</option><option value="ملك (Owned)">ملك (Owned)</option><option value="إيجار (Hired)">إيجار (Hired)</option></select></td>`;
+  }
+
+  function addWorkRow() {
+    const tbody = document.querySelector("#worksTable tbody");
+    const row = tbody.insertRow();
+    row.innerHTML = `<td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="email"></td><td><input type="text"></td>`;
+  }
+
+  function tableToText(tableSelector) {
+    const rows = document.querySelectorAll(`${tableSelector} tbody tr`);
+    let result = [];
+    rows.forEach((r, idx) => {
+      const vals = Array.from(r.querySelectorAll("input, select")).map(el => el.value.trim()).filter(Boolean);
+      if (vals.length > 0) result.push(`(${idx + 1}) ` + vals.join(" | "));
+    });
+    return result.join("\n");
+  }
+
+  document.getElementById("supplierForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+    btn.innerText = "جاري رفع الملفات وإرسال البيانات... يرجى الانتظار ⏳";
+
+    try {
+      let eligRows = [];
+      document.querySelectorAll("#eligibilityBody tr").forEach(tr => {
+        const docName = tr.cells[0].innerText || tr.cells[0].querySelector("input")?.value;
+        const num = tr.cells[1].querySelector("input").value;
+        const issue = tr.cells[2].querySelector("input").value;
+        const exp = tr.cells[3].querySelector("input").value;
+        if (num) eligRows.push(`${docName}: رقم (${num}) | إصدار: ${issue} | انتهاء: ${exp}`);
+      });
+
+      const fileInput = document.getElementById("attachment");
+      let fileData = null, fileName = null, MimeType = null;
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        if (file.size > 10 * 1024 * 1024) {
+          alert("حجم الملف أكبر من 10 ميجابايت، يرجى ضغط ملف الـ PDF والمحاولة مجدداً.");
+          btn.disabled = false;
+          btn.innerText = "إرسال طلب التأهيل المسبق | Submit Application";
+          return;
+        }
+        fileName = file.name;
+        MimeType = file.type;
+        fileData = await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result.split(",")[1]);
+          reader.readAsDataURL(file);
+        });
+      }
+
+      const payload = {
+        companyName: document.getElementById("companyName").value,
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value,
+        city: document.getElementById("city").value,
+        phone: document.getElementById("phone").value,
+        fax: document.getElementById("fax").value,
+        legalStatus: document.getElementById("legalStatus").value,
+        ownership: document.getElementById("ownership").value,
+        regDetails: document.getElementById("regDetails").value,
+        execManagement: document.getElementById("execManagement").value,
+        act1: document.getElementById("act1").value,
+        act2: document.getElementById("act2").value,
+        act3: document.getElementById("act3").value,
+        creditSale: document.getElementById("creditSale").value,
+        expYears: document.getElementById("expYears").value,
+        bankName: document.getElementById("bankName").value,
+        bankAddress: document.getElementById("bankAddress").value,
+        accountName: document.getElementById("accountName").value,
+        accUSD: document.getElementById("accUSD").value,
+        accYER: document.getElementById("accYER").value,
+        accSAR: document.getElementById("accSAR").value,
+        bankTransfer: document.getElementById("bankTransfer").value,
+        eligibilityTable: eligRows.join("\n"),
+        validStructure: document.getElementById("validStructure").value,
+        fullTimeStaff: document.getElementById("fullTimeStaff").value,
+        nationalStaff: document.getElementById("nationalStaff").value,
+        expatStaff: document.getElementById("expatStaff").value,
+        staffQualifications: tableToText("#staffTable"),
+        equipmentList: tableToText("#equipTable"),
+        previousWorks: tableToText("#worksTable"),
+        fileName, MimeType, fileData
+      };
+
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(payload)
+      });
+
+      document.getElementById("formContainer").style.display = "none";
+      document.getElementById("successModal").style.display = "block";
+      window.scrollTo(0, 0);
+    } catch (error) {
+      alert("حدث خطأ أثناء الإرسال، يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.");
+      btn.disabled = false;
+      btn.innerText = "إرسال طلب التأهيل المسبق | Submit Application";
+    }
+  });
+</script>
+
+</body>
+</html>
