@@ -1740,7 +1740,144 @@
       statusNote.style.display = "none";
     }
   });
+  
 </script>
 
+</body>
+</html>
+// دالة تحفظ ترتيب كل عمود داخل الجداول وتضع (-) في الحقل الاختياري الفارغ لمنع إزاحة الأعمدة
+  function serializeTableRows(tbodyId, headersLabels) {
+    const rows = document.querySelectorAll(`#${tbodyId} tr`);
+    let out = [];
+    rows.forEach((r, idx) => {
+      const inputs = Array.from(r.querySelectorAll("input, select"));
+      const hasAnyValue = inputs.some(el => el.value.trim() !== "");
+      if (hasAnyValue) {
+        const formattedCells = inputs.map((el, i) => {
+          const val = el.value.trim() !== "" ? el.value.trim() : "غير محدد";
+          const label = headersLabels && headersLabels[i] ? headersLabels[i] + ": " : "";
+          return label + val;
+        });
+        out.push(`(${idx + 1}) ` + formattedCells.join(" | "));
+      }
+    });
+    return out.length > 0 ? out.join("\n") : "لا يوجد";
+  }
+
+  document.getElementById("supplierForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    const btn = document.getElementById("submitBtn");
+    const statusNote = document.getElementById("statusNote");
+    btn.disabled = true;
+    btn.innerText = "جاري رفع الملفات وتوثيق كل حقل في عموده المخصص لدى CRB... ⏳";
+    statusNote.style.display = "block";
+
+    try {
+      // قراءة كل سطر في جدول الوثائق الرسمية بشكل مستقل ومباشر حسب ترتيبه الثابت
+      const eligTrs = document.querySelectorAll("#eligibilityBody tr");
+      const getDocData = (rowIndex) => {
+        const tr = eligTrs[rowIndex];
+        return {
+          name: tr.querySelector(".doc-custom-name") ? tr.querySelector(".doc-custom-name").value.trim() : "",
+          num: tr.querySelector(".doc-num").value.trim(),
+          iss: tr.querySelector(".doc-issue").value.trim(),
+          exp: tr.querySelector(".doc-exp").value.trim()
+        };
+      };
+
+      const commDoc = getDocData(0); // البطاقة التجارية
+      const workDoc = getDocData(1); // رخصة المهنة
+      const taxDoc  = getDocData(2); // البطاقة الضريبية
+      const insDoc  = getDocData(3); // بطاقة التأمينات (اختياري)
+      const zakDoc  = getDocData(4); // البطاقة الزكوية
+      const othDoc  = getDocData(5); // وثيقة إضافية (اختياري)
+
+      const file = document.getElementById("attachment").files[0];
+      const base64File = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(",")[1]);
+        reader.onerror = err => reject(err);
+        reader.readAsDataURL(file);
+      });
+
+      const compName = document.getElementById("companyName").value.trim();
+      const userEmail = document.getElementById("email").value.trim();
+
+      // إرسال كل حقل باسمه المستقل تماماً ليذهب إلى عموده المخصص في الإكسل دون أي إزاحة
+      const payload = {
+        entryTime: document.getElementById("entryTimeInput").value,
+        companyName: compName,
+        email: userEmail,
+        city: document.getElementById("city").value,
+        address: document.getElementById("address").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        sabafon: document.getElementById("sabafon").value.trim(),
+        legalStatus: document.getElementById("legalStatus").value,
+        ownership: document.getElementById("ownership").value,
+        regNumber: document.getElementById("regNumber").value.trim(),
+        regYear: document.getElementById("regYear").value,
+        regPlace: document.getElementById("regPlace").value,
+        execManagement: document.getElementById("execManagement").value.trim(),
+        act1: document.getElementById("act1").value,
+        act2: document.getElementById("act2").value,
+        act3: document.getElementById("act3").value,
+        creditSale: document.getElementById("creditSale").value,
+        expYears: document.getElementById("expYears").value,
+        bankName: document.getElementById("bankName").value,
+        bankAddress: document.getElementById("bankAddress").value.trim(),
+        accountName: document.getElementById("accountName").value.trim(),
+        accUSD: document.getElementById("accUSD").value.trim(),
+        accYER: document.getElementById("accYER").value.trim(),
+        accSAR: document.getElementById("accSAR").value.trim(),
+        bankTransfer: document.getElementById("bankTransfer").value,
+        
+        // أعمدة الوثائق الرسمية المستقلة
+        commNum: commDoc.num, commIss: commDoc.iss, commExp: commDoc.exp,
+        workNum: workDoc.num, workIss: workDoc.iss, workExp: workDoc.exp,
+        taxNum:  taxDoc.num,  taxIss:  taxDoc.iss,  taxExp:  taxDoc.exp,
+        insNum:  insDoc.num,  insIss:  insDoc.iss,  insExp:  insDoc.exp,
+        zakNum:  zakDoc.num,  zakIss:  zakDoc.iss,  zakExp:  zakDoc.exp,
+        othName: othDoc.name, othNum:  othDoc.num,  othIss:  othDoc.iss, othExp: othDoc.exp,
+
+        validStructure: document.getElementById("validStructure").value,
+        fullTimeStaff: document.getElementById("fullTimeStaff").value,
+        nationalStaff: document.getElementById("nationalStaff").value,
+        expatStaff: document.getElementById("expatStaff").value,
+        
+        staffQualifications: serializeTableRows("staffTbody", ["الاسم", "المسمى", "المؤهل", "التخصص", "الخبرة"]),
+        equipmentList: serializeTableRows("equipTbody", ["النوع", "سنة الصنع", "الموديل/السعة", "الحيازة"]),
+        previousWorks: serializeTableRows("worksTbody", ["العميل", "السنة", "المحافظة", "الإيميل", "الهاتف"]),
+        
+        fileName: file.name,
+        MimeType: "application/pdf",
+        fileData: base64File
+      };
+
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+
+      localStorage.removeItem("crb_supplier_draft_2026");
+      document.getElementById("formContainer").style.display = "none";
+      document.getElementById("liveGreetingBox").style.display = "none";
+      document.getElementById("personalSuccessMsg").innerText = `أهلاً بكم (${compName} - ${userEmail})، نتطلع لشراكة مثمرة ومستدامة معكم!`;
+      document.getElementById("successModal").style.display = "block";
+      document.getElementById("progressBar").style.width = "100%";
+      document.getElementById("completionText").innerText = "نسبة الإنجاز: 100% ✅";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+    } catch (err) {
+      alert("حدث خطأ في الاتصال بالشبكة أثناء رفع الملف، يرجى التأكد من الإنترنت والمحاولة مرة أخرى.");
+      btn.disabled = false;
+      btn.innerText = "إرسال واعتماد استمارة التأهيل المسبق | Submit Application";
+      statusNote.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
