@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[نسخة معاينة وتجربة] التأهيل المسبق للموردين ومزودي الخدمات 2026-2027 | CRB</title>
-    <meta name="description" content="نسخة معاينة تفاعلية متقدمة ومستقلة لاستمارة التأهيل المسبق لدى CRB">
+    <title>استمارة التأهيل المسبق للموردين ومزودي الخدمات 2026-2027 | CRB</title>
+    <meta name="description" content="البوابة الرسمية المعتمدة لاستقبال وتأهيل الموردين ومقاولي الخدمات لدى منظمة CRB لعام 2026-2027">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='112' height='112' x='4' y='4' rx='24' fill='%23ffffff' stroke='%23009640' stroke-width='6'/%3E%3Cpath d='M42 68 C35 55 38 34 44 34 C48 34 48 45 50 45 C54 30 62 22 67 24 C71 26 62 42 64 43 C70 30 78 24 83 27 C87 30 74 46 76 48 C83 38 90 35 93 39 C96 43 82 56 83 59 C89 53 95 52 97 56 C99 61 80 78 65 78 C50 78 46 74 42 68 Z' fill='%23F37021'/%3E%3Cpath d='M56 44 L46 54 L46 64 L52 64 L52 55 L56 51 L60 55 L60 64 L66 64 L66 54 Z' fill='%23009640'/%3E%3Ctext x='60' y='103' font-family='Arial, sans-serif' font-weight='900' font-size='32' fill='%23009640' text-anchor='middle'%3ECRB%3C/text%3E%3C/svg%3E">
-    <!-- استخدام خطوط النظام والخطوط المحلية لتجنب أي طلبات شبكية خارجية أثناء المعاينة -->
+            <!-- استخدام خط كايرو العربي الفاخر عبر Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --crb-green: #009640;
@@ -73,36 +76,7 @@
             }
         }
 
-        /* شريط التنبيه العلوي لبيئة المعاينة */
-        .staging-pill-banner {
-            max-width: 1160px;
-            margin: 10px auto 14px;
-            background: linear-gradient(90deg, #fffbeb 0%, #f0fdf4 100%);
-            border: 1px solid #fef3c7;
-            box-shadow: var(--shadow-sm);
-            border-radius: 30px;
-            padding: 8px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            font-size: 13px;
-            color: #92400e;
-            font-weight: 700;
-            flex-wrap: wrap;
-        }
-
-        .staging-pill-badge {
-            background: var(--crb-green);
-            color: #ffffff;
-            font-size: 11.5px;
-            font-weight: 800;
-            padding: 2px 10px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
+        
 
         /* شريط التقدم العلوي الثابت */
         .top-progress-wrap {
@@ -1064,40 +1038,7 @@
             word-break: break-word;
         }
 
-        /* شاشة المحاكاة */
-        #simulationResultView {
-            display: none;
-            padding: 40px 24px;
-            text-align: center;
-        }
-
-        .sim-check-icon {
-            width: 76px;
-            height: 76px;
-            background: var(--crb-green-soft);
-            color: var(--crb-green);
-            border: 2px solid var(--crb-green-border);
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            margin-bottom: 16px;
-        }
-
-        .sim-payload-box {
-            background: #0f172a;
-            color: #38bdf8;
-            border-radius: var(--radius);
-            padding: 14px;
-            text-align: left;
-            direction: ltr;
-            font-family: Consolas, monospace;
-            font-size: 12px;
-            max-height: 280px;
-            overflow-y: auto;
-            margin-top: 10px;
-        }
+        
 
         /* الفوتر الرسمي */
         .site-footer {
@@ -1445,13 +1386,6 @@
 
 <body>
 
-    <!-- شريط التنبيه لبيئة المعاينة والتجربة -->
-    <div class="staging-pill-banner">
-        <div>🧪 <strong>بيئة معاينة تفاعلية (Staging Preview)</strong> — محاكاة محلية آمنة دون إرسال طلبات أو تعديل
-            قواعد الإنتاج.</div>
-        <span class="staging-pill-badge">⚡ وضع المعاينة نشط</span>
-    </div>
-
     <!-- شريط التقدم العلوي الثابت -->
     <div class="top-progress-wrap">
         <div class="top-progress-bar" id="progressBar"></div>
@@ -1477,7 +1411,7 @@
         <!-- الترويسة الرسمية الفاخرة بدون حواف 6px خشنة -->
         <div class="hero-header">
             <div class="logo-frame">
-                <img src="logo.png.jpg" alt="CRB Logo"
+                <img src="logo.png" alt="CRB Logo"
                     onerror="this.style.display='none'; document.getElementById('crbSvgLogo').style.display='block';">
                 <svg id="crbSvgLogo" style="display:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
                     <rect width="112" height="112" x="4" y="4" rx="22" fill="#ffffff" stroke="#009640"
@@ -1499,11 +1433,10 @@
                     <span>🏢 التواصل والمشتريات:</span>
                     <a href="mailto:Rashad@crbyemen.org" class="email-chip" dir="ltr">✉️ Rashad@crbyemen.org</a>
                     <span>|</span>
-                    <a href="tel:+967718759366" class="contact-chip" dir="ltr">📞 +967 718 759 366</a>
+                    <a href="tel:+967718759366" class="contact-chip">📞 <span dir="ltr">+967 718 759 366</span></a>
                     <span>|</span>
-                    <a href="https://wa.me/967718759366" target="_blank" rel="noopener noreferrer" class="whatsapp-chip"
-                        dir="ltr">
-                        💬 واتساب: +967 718 759 366
+                    <a href="https://wa.me/967718759366" target="_blank" rel="noopener noreferrer" class="whatsapp-chip">
+                        💬 واتساب: <span dir="ltr">+967 718 759 366</span>
                     </a>
                 </div>
             </div>
@@ -1598,9 +1531,9 @@
                 <ul id="errorList"></ul>
             </div>
 
-            <form id="supplierForm" novalidate onsubmit="simulateSubmit(event)">
+            <form id="supplierForm" novalidate onsubmit="submitForm(event)">
                 <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
-                    style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+                    style="position:absolute;left:0;top:0;clip:rect(0,0,0,0);overflow:hidden;width:1px;height:1px;opacity:0;">
                 <input type="hidden" id="entryTimeInput">
                 <input type="hidden" id="address">
 
@@ -2337,47 +2270,29 @@
 
                 <div id="statusNote"
                     style="display:none; text-align:center; padding:12px; font-weight:800; color:var(--crb-green-dark);">
-                    جاري معالجة المحاكاة المحلية وفحص المدخلات... ⏳
+                    جاري فحص البيانات ورفع ملف الـ PDF وإرسال الإشعار الفوري إلى إدارة المشتريات (LM@crbyemen.org / Rashad@crbyemen.org)... يرجى الانتظار ⏳
                 </div>
             </form>
         </div>
 
-        <!-- ================= 3. شاشة محاكاة النتيجة (Simulation Result View) ================= -->
-        <div id="simulationResultView">
-            <div class="sim-check-icon">✓</div>
-            <h2 style="color:var(--crb-green-dark); font-size:24px; margin:0 0 10px; font-weight:900;">🧪 تمت المحاكاة
-                واكتمال التدقيق المحلي بنجاح</h2>
-            <p id="simPersonalMsg"
-                style="font-size:16.5px; font-weight:800; color:var(--crb-orange-dark); margin:8px 0 16px;"></p>
-
-            <div class="info-card-box amber" style="max-width:760px; margin:14px auto; text-align:right;">
-                <strong>⚠️ تنبيه تشغيلي لبيئة المعاينة والاختبار:</strong><br>
-                هذه محاكاة محلية لا ترسل طلبات حقيقية إلى قاعدة الإنتاج ولا تنشئ ملفات في السحابة. في بيئة الربط الحقيقي
-                لاحقاً، تبقى النتيجة قيد التحقق والمطابقة في جدول البيانات من قِبل المسؤول قبل تأكيد الحفظ النهائي.
-            </div>
-
+        <!-- شاشة التهنئة بعد نجاح الإرسال -->
+        <div id="successModal" style="display:none; padding:65px 30px; text-align:center; background:#fff; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); max-width:850px; margin:20px auto;">
             <div
-                style="background:#f0fdf4; border:1px solid #bbf7d0; padding:12px 18px; border-radius:var(--radius); max-width:760px; margin:14px auto; font-weight:700; color:#166534; font-size:13.5px; text-align:right;">
-                💾 <strong>حفظ المسودة:</strong> تم الحفاظ على مسودة بياناتك كاملة في المتصفح محلياً ولم تُحذف لضمان عدم
-                ضياع أي جهد.
-            </div>
-
-            <!-- عرض تشخيصي فني مخفي عن مسار المستخدم العادي -->
-            <details style="max-width:760px; margin:18px auto; text-align:right;">
-                <summary
-                    style="font-weight:800; cursor:pointer; color:var(--slate); padding:10px 14px; background:#f1f5f9; border-radius:var(--radius); border:1px solid var(--border);">
-                    🛠️ عرض تشخيصي فني للمطورين (56 مفتاحاً - محجوب منه محتوى الملف)
-                </summary>
-                <div class="sim-payload-box" id="simPayloadJson"></div>
-            </details>
-
-            <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:24px;">
-                <button type="button" class="quick-btn" onclick="returnToForm()">🔄 العودة لتعديل الاستمارة أو تجربة
-                    أخرى</button>
-                <button type="button" class="quick-btn"
-                    style="background:var(--crb-orange-soft); color:var(--crb-orange-dark); border-color:var(--crb-orange-border);"
-                    onclick="returnToLanding()">🏠 العودة لصفحة الاستقبال</button>
-            </div>
+                style="width:92px; height:92px; background:var(--crb-green-soft); color:var(--crb-green); border:3px solid var(--crb-orange); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:46px; margin-bottom:20px;">
+                ✓</div>
+            <h2 style="color:var(--crb-green-dark); font-size:28px; margin:0 0 10px; font-weight:900;">مبارك عليك التقديم لدى منتدى
+                الإغاثة والبناء - CRB</h2>
+            <p id="personalSuccessMsg"
+                style="font-size:19.5px; font-weight:800; color:var(--crb-orange-dark); margin:8px 0 18px;">نتطلع لشراكة
+                مثمرة ومستدامة معكم!</p>
+            <p style="color:var(--slate); max-width:680px; margin:0 auto 26px; line-height:1.95; font-size:15.5px;">
+                تم توثيق وحفظ استمارة التأهيل المسبق للموردين ومزودي الخدمات للعام <strong>(2026 - 2027م)</strong>
+                ومرفقاتكم الرسمية بنجاح.<br>
+                كما تم إرسال <strong>إشعار تأكيد آلي</strong> إلى بريدكم الإلكتروني، ونسخة رسمية إلى إدارة المشتريات
+                واللوجستيات (<span dir="ltr">LM@crbyemen.org</span> | <span dir="ltr">Rashad@crbyemen.org</span>).<br>
+                <span style="display:inline-block; margin-top:8px; font-weight:700; color:#b45309;">⚠️ إن لم يصلكم البريد راجعوا Spam أو تواصلوا على 718759366</span>
+            </p>
+            <button type="button" class="quick-btn" onclick="location.reload()">تقديم طلب جديد لشركة أخرى</button>
         </div>
 
         <!-- الفوتر الرسمي -->
@@ -2386,19 +2301,17 @@
                 الخدمات</strong><br>
             إدارة المشتريات واللوجستيات | البريد:
             <a href="mailto:Rashad@crbyemen.org" dir="ltr">Rashad@crbyemen.org</a> &nbsp;|&nbsp;
-            هاتف: <a href="tel:+967718759366" dir="ltr">+967 718 759 366</a> &nbsp;|&nbsp;
-            واتساب: <a href="https://wa.me/967718759366" target="_blank" rel="noopener noreferrer" dir="ltr">+967 718
-                759 366</a>
+            هاتف: <a href="tel:+967718759366"><span dir="ltr">+967 718 759 366</span></a> &nbsp;|&nbsp;
+            واتساب: <a href="https://wa.me/967718759366" target="_blank" rel="noopener noreferrer"><span dir="ltr">+967 718 759 366</span></a>
         </div>
     </div>
 
     <script>
 
-        // تنبيه: الرابط معطل 100% في وضع Staging المحلي ولا يتم تنفيذ أي طلبات شبكة خارجية
-        const SCRIPT_URL_DISABLED_IN_STAGING = "DISABLED_IN_STAGING";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxZmQZ5YOh0bNTZzdTPt4ILZABbwgEJsqxHooo8EXQSdyXLqwVUqvaCbok-T7bxMZC6Cg/exec";
         const SUBMISSION_ID = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now() + "-" + Math.random().toString(36).slice(2);
 
-        const STAGING_DRAFT_KEY = "crb_supplier_staging_draft_2026";
+        const DRAFT_KEY = "crb_supplier_draft_2026";
 
         // 1. التقسيم الإداري الرسمي للمحافظات والمديريات (المصدر: قانون السلطة المحلية رقم 4 لسنة 2000م و OCHA COD-AB v2024)
         // ملاحظة قانونية: المراكز المنصوص عليها قانوناً بنص مباشر محددة في capital، بينما المحافظات ذات المراكز المتعددة أو غير المحددة بنص قانوني مباشر محددة بقيمة null ليختار المورد بنفسه.
@@ -3169,13 +3082,13 @@
                 });
             });
 
-            localStorage.setItem(STAGING_DRAFT_KEY, JSON.stringify(draft));
+            localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
             updateProgress();
         }
 
         function restoreSavedDraft() {
             try {
-                const raw = localStorage.getItem(STAGING_DRAFT_KEY);
+                const raw = localStorage.getItem(DRAFT_KEY);
                 if (!raw) return;
                 const draft = JSON.parse(raw);
 
@@ -3300,8 +3213,8 @@
         }
 
         function clearSavedDraft() {
-            if (confirm("هل ترغب فعلاً في مسح مسودة المعاينة والبدء من جديد؟")) {
-                localStorage.removeItem(STAGING_DRAFT_KEY);
+            if (confirm("هل ترغب فعلاً في مسح مسودة الاستمارة والبدء من جديد؟")) {
+                localStorage.removeItem(DRAFT_KEY);
                 location.reload();
             }
         }
@@ -3331,7 +3244,7 @@
         function startApplication() {
             document.getElementById("landingView").style.display = "none";
             document.getElementById("formContainer").style.display = "block";
-            document.getElementById("simulationResultView").style.display = "none";
+            const sm = document.getElementById("successModal"); if (sm) sm.style.display = "none";
             goToStep(1);
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -3339,12 +3252,12 @@
         function returnToLanding() {
             document.getElementById("landingView").style.display = "block";
             document.getElementById("formContainer").style.display = "none";
-            document.getElementById("simulationResultView").style.display = "none";
+            (document.getElementById("successModal") || {}).style.display = "none";
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
         function returnToForm() {
-            document.getElementById("simulationResultView").style.display = "none";
+            (document.getElementById("successModal") || {}).style.display = "none";
             document.getElementById("formContainer").style.display = "block";
             goToStep(currentStep || 1);
             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -3461,6 +3374,12 @@
 
                 const landmark = document.getElementById("landmarkInput");
                 if (!landmark.value.trim()) flagFieldError(landmark, errors, "أقرب معلم بارز: يرجى كتابة أقرب معلم بارز لتسهيل الوصول.");
+
+                composeAddress();
+                const addr = document.getElementById("address");
+                if (!addr.value.trim() || addr.value.trim().length < 8) {
+                    flagFieldError(street, errors, "العنوان التفصيلي: العنوان المركب للمقر يجب ألا يقل عن 8 أحرف.");
+                }
 
                 const phone = document.getElementById("phone");
                 const cleanPhone = phone.value.trim().replace(/[\s\-]/g, "");
@@ -3956,8 +3875,8 @@
             return out.length > 0 ? out.join("\n") : "لا يوجد";
         }
 
-        // 17. محاكاة الإرسال المحلي الآمن (Simulated Submit - 56 مفتاحاً)
-        async function simulateSubmit(e) {
+                // 17. إرسال واعتماد استمارة التأهيل المسبق (Real Submit - 56 مفتاحاً)
+        async function submitForm(e) {
             e.preventDefault();
             const btn = document.getElementById("btnFinalSubmit");
             if (btn && btn.disabled) return;
@@ -3971,7 +3890,7 @@
 
             const statusNote = document.getElementById("statusNote");
             btn.disabled = true;
-            btn.innerText = "جاري تنفيذ المعالجة والمحاكاة المحلية... ⏳";
+            btn.innerText = "جاري فحص البيانات ورفع الملف... يرجى الانتظار ⏳";
             statusNote.style.display = "block";
 
             try {
@@ -3994,10 +3913,20 @@
                 const othDoc = getDocData(5);
 
                 const file = document.getElementById("attachment").files[0];
+                let base64File = "";
+                if (file) {
+                    base64File = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result.split(",")[1]);
+                        reader.onerror = err => reject(err);
+                        reader.readAsDataURL(file);
+                    });
+                }
+
                 const compName = document.getElementById("companyName").value.trim();
                 const userEmail = document.getElementById("email").value.trim();
 
-                // بناء كائن الـ 56 مفتاحاً (شامل submissionId وwebsite)
+                // بناء كائن الـ 56 مفتاحاً المطابق تماماً لنموذج الإنتاج
                 const payload = {
                     submissionId: SUBMISSION_ID,
                     website: document.getElementById("website").value,
@@ -4014,6 +3943,7 @@
                     regYear: document.getElementById("regYear").value,
                     regPlace: document.getElementById("regPlace").value,
                     execManagement: document.getElementById("execManagement").value.trim(),
+
                     act1: getActivityVal(1),
                     act2: getActivityVal(2),
                     act3: getActivityVal(3),
@@ -4043,26 +3973,32 @@
                     equipmentList: serializeTableRows("equipTbody", ["النوع", "سنة الصنع", "الموديل/السعة", "الحيازة"]),
                     previousWorks: serializeTableRows("worksTbody", ["العميل", "السنة", "المحافظة", "الإيميل", "الهاتف"]),
 
-                    fileName: file ? file.name : "test_document.pdf",
+                    fileName: file ? file.name : "لم يُرفق ملف",
                     MimeType: "application/pdf",
-                    fileData: "[بيانات الملف محجوبة للأمان وسرية الوثائق - REDACTED]"
+                    fileData: base64File
                 };
 
-                await new Promise(r => setTimeout(r, 1000));
+                await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify(payload)
+                });
 
+                localStorage.removeItem(DRAFT_KEY);
                 document.getElementById("formContainer").style.display = "none";
-                document.getElementById("simPersonalMsg").innerText = `أهلاً بكم (${compName} - ${userEmail})، تم التحقق من سلامة كافة الحقول والمدخلات محلياً.`;
-                document.getElementById("simPayloadJson").innerText = JSON.stringify(payload, null, 2);
-                document.getElementById("simulationResultView").style.display = "block";
-                // مسح المسودة المحلية بعد نجاح المحاكاة
-                localStorage.removeItem(STAGING_DRAFT_KEY);
-
+                document.getElementById("liveGreetingBox").style.display = "none";
+                document.getElementById("personalSuccessMsg").innerText = `أهلاً بكم (${compName} - ${userEmail})، نتطلع لشراكة مثمرة ومستدامة معكم!`;
+                document.getElementById("successModal").style.display = "block";
                 document.getElementById("progressBar").style.width = "100%";
-                document.getElementById("completionText").innerText = "نسبة الإنجاز: 100% (محاكاة ناجحة)";
+                document.getElementById("completionText").innerText = "نسبة الإنجاز: 100% ✅";
                 window.scrollTo({ top: 0, behavior: "smooth" });
 
             } catch (err) {
-                alert("حدث خطأ أثناء المحاكاة: " + err.toString());
+                alert("حدث خطأ في الاتصال بالشبكة أثناء رفع الملف، يرجى التأكد من الإنترنت والمحاولة مرة أخرى.");
+                btn.disabled = false;
+                btn.innerText = "إرسال واعتماد استمارة التأهيل المسبق | Submit Application";
+                statusNote.style.display = "none";
             } finally {
                 btn.disabled = false;
                 btn.innerText = "إرسال واعتماد استمارة التأهيل المسبق | Submit Application";
